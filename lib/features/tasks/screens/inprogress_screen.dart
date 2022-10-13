@@ -48,6 +48,7 @@ class _TaskInprogressScreenBodyState extends State<_TaskInprogressScreenBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Material(
         child: Center(
           child: ListView.builder(

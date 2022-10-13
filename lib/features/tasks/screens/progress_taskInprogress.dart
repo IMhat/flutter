@@ -38,7 +38,7 @@ class _ProgresTaskInprogressState extends State<ProgresTaskInprogress> {
             onTap: () {
               setState(() {
                 widget.taskInprogress.type = "done";
-                print("mundo");
+
                 widget.taskInprogress.type = "done";
                 taskServiceProvider.updateTask(widget.taskInprogress);
               });
@@ -131,7 +131,7 @@ class _TaskProgresState extends State<_TaskProgres> {
                 decoration: _cardBorders(),
                 margin: const EdgeInsetsDirectional.only(top: 10),
                 width: 500,
-                height: 680,
+                height: 700,
                 child: Container(
                   margin: const EdgeInsets.only(top: 30, bottom: 20),
                   width: 100,
@@ -139,14 +139,21 @@ class _TaskProgresState extends State<_TaskProgres> {
                   decoration: _cardBorders(),
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      Wrap(
+                        alignment: WrapAlignment.spaceAround,
+                        spacing: 80.0,
                         children: [
-                          Text(
-                            widget.title.toString(),
-                            style: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.start,
+                          SizedBox(
+                            width: 150,
+                            height: 60,
+                            child: Text(
+                              widget.title.toString(),
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.start,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                           Text(
                             widget.points.toString(),
@@ -189,9 +196,8 @@ class _TaskProgresState extends State<_TaskProgres> {
                           Container(
                             width: 340,
                             height: 200,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            child: Wrap(
+                              alignment: WrapAlignment.spaceAround,
                               children: [
                                 Column(
                                   mainAxisAlignment:
@@ -266,7 +272,7 @@ class _TaskProgresState extends State<_TaskProgres> {
                         ],
                       ),
                       Container(
-                        margin: const EdgeInsets.only(top: 3),
+                        margin: const EdgeInsets.only(top: 16),
                         width: 350,
                         height: 100,
                         decoration: BoxDecoration(
@@ -282,47 +288,51 @@ class _TaskProgresState extends State<_TaskProgres> {
                                 blurRadius: 10,
                               )
                             ]),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              width: 100,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 247, 220, 220),
-                                borderRadius: BorderRadius.circular(10),
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 15),
+                          child: Wrap(
+                            alignment: WrapAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: 100,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 247, 220, 220),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: const Icon(
+                                  Icons.star_border,
+                                  size: 40,
+                                  color: Color.fromARGB(255, 255, 121, 64),
+                                ),
                               ),
-                              child: const Icon(
-                                Icons.star_border,
-                                size: 40,
-                                color: Color.fromARGB(255, 255, 121, 64),
+                              Container(
+                                width: 200,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                  gradient: const LinearGradient(
+                                      begin: AlignmentDirectional.topEnd,
+                                      colors: [
+                                        Color.fromARGB(255, 242, 133, 157),
+                                        Color.fromARGB(255, 167, 79, 211),
+                                      ]),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: OutlinedButton.icon(
+                                  icon: const Icon(Icons.check,
+                                      color: Colors.black),
+                                  label: const Text("Done",
+                                      style: TextStyle(color: Colors.white)),
+                                  onPressed: () {
+                                    setState(() {
+                                      widget.onTap();
+                                    });
+                                  },
+                                ),
                               ),
-                            ),
-                            Container(
-                              width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    begin: AlignmentDirectional.topEnd,
-                                    colors: [
-                                      Color.fromARGB(255, 242, 133, 157),
-                                      Color.fromARGB(255, 167, 79, 211),
-                                    ]),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: OutlinedButton.icon(
-                                icon: const Icon(Icons.check,
-                                    color: Colors.black),
-                                label: const Text("Done",
-                                    style: TextStyle(color: Colors.white)),
-                                onPressed: () {
-                                  setState(() {
-                                    widget.onTap();
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       )
                     ],

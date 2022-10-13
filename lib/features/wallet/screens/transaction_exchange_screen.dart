@@ -57,71 +57,29 @@ class _ExchangeTransactionScreenBodyState
     //final pointListProvider = Provider.of<PointListProvider>(context);
 
     return SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 80,
-            width: 250,
-            child: Container(
-              margin: const EdgeInsets.only(top: 0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  Text(
-                    "Mis Gastos",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-                  )
-                ],
+      child: Container(
+        child: Center(
+          child: ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            //itemCount: taskListProvider.tasks.length,
+            itemCount: widget.transactionService.transactions.length,
+            itemBuilder: (BuildContext context, int index) => GestureDetector(
+              onTap: () {
+                widget.transactionService.selectedTransaction =
+                    widget.transactionService.transactions[index].copy();
+                // Navigator.pushNamed(
+                //   context,
+                //   'pointPut',
+                // );
+              },
+              child: ExchangeProductTransactionCard(
+                transaction: widget.transactionService.transactions[index],
               ),
             ),
           ),
-          // Container(
-          //   width: 280,
-          //   height: 120,
-          //   decoration: const BoxDecoration(
-          //       color: Color.fromARGB(255, 231, 170, 209),
-          //       borderRadius: BorderRadius.all(Radius.circular(10))),
-          //   child: Column(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: const [
-          //       Text(
-          //         "300 Puntos",
-          //         style: TextStyle(
-          //           fontSize: 30,
-          //           fontWeight: FontWeight.bold,
-          //           decorationColor: Colors.red,
-          //         ),
-          //         textAlign: TextAlign.center,
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          Container(
-            child: Center(
-              child: ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                scrollDirection: Axis.vertical,
-                //itemCount: taskListProvider.tasks.length,
-                itemCount: widget.transactionService.transactions.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    GestureDetector(
-                  onTap: () {
-                    widget.transactionService.selectedTransaction =
-                        widget.transactionService.transactions[index].copy();
-                    // Navigator.pushNamed(
-                    //   context,
-                    //   'pointPut',
-                    // );
-                  },
-                  child: ExchangeProductTransactionCard(
-                    transaction: widget.transactionService.transactions[index],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

@@ -47,7 +47,8 @@ class _TaskDoneScreenBodyState extends State<_TaskDoneScreenBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Material(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
         child: Center(
           child: ListView.builder(
             shrinkWrap: true,

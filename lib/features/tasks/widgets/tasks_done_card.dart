@@ -16,8 +16,8 @@ class _TaskDoneCardState extends State<TaskDoneCard> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(2.0),
-      margin: const EdgeInsets.only(top: 0, bottom: 10),
-      width: 200, height: 150,
+      margin: const EdgeInsets.only(top: 0, bottom: 0),
+      width: 200, height: 130,
       //decoration: _cardBorders(),
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -61,10 +61,10 @@ class _TaskDetailsState extends State<_TaskDetails> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       width: 320,
-      height: 140,
+      height: 125,
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 237, 236, 237),
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
           boxShadow: [
             BoxShadow(
               color: Colors.grey[850]!.withOpacity(0.29),
@@ -84,19 +84,23 @@ class _TaskDetailsState extends State<_TaskDetails> {
                     width: 10,
                     height: 10,
                     decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: const Color.fromARGB(255, 124, 199, 127),
                         border: Border.all(
                             color: const Color.fromARGB(255, 255, 251, 251)),
                         borderRadius: BorderRadius.circular(50)),
                   ),
-                  Text(
-                    widget.title.toString(),
-                    style: const TextStyle(
-                        fontSize: 20,
-                        color: Color.fromARGB(255, 7, 0, 0),
-                        fontWeight: FontWeight.bold),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                  SizedBox(
+                    width: 150,
+                    height: 45,
+                    child: Text(
+                      widget.title.toString(),
+                      style: const TextStyle(
+                          fontSize: 20,
+                          color: Color.fromARGB(255, 7, 0, 0),
+                          fontWeight: FontWeight.bold),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),
@@ -107,14 +111,14 @@ class _TaskDetailsState extends State<_TaskDetails> {
                   const Icon(Icons.today_outlined),
                   const Text("2 hours ago"),
                   Container(
-                    margin: const EdgeInsets.only(left: 30),
+                    margin: const EdgeInsets.only(left: 50),
                     padding: const EdgeInsets.only(
                       top: 10,
                     ),
-                    width: 150,
+                    width: 100,
                     height: 45,
                     decoration: BoxDecoration(
-                        color: Colors.green,
+                        color: const Color.fromARGB(255, 124, 199, 127),
                         border: Border.all(
                             color: const Color.fromARGB(255, 255, 251, 251)),
                         borderRadius: BorderRadius.circular(50)),

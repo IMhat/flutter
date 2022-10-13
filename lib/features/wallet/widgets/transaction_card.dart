@@ -55,7 +55,7 @@ class _UserDetailsState extends State<_UserDetails> {
     return Center(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        width: 340,
+        width: 330,
         height: 140,
         decoration: BoxDecoration(
             color: Colors.white,

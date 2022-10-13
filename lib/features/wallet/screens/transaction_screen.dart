@@ -55,43 +55,11 @@ class _TransactionScreenBodyState extends State<_TransactionScreenBody> {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          SizedBox(
-            height: 80,
-            width: 250,
-            child: Container(
-              margin: const EdgeInsets.only(top: 0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  Text(
-                    "Mis Ingresos",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-                  )
-                ],
-              ),
+          Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
             ),
           ),
-          // Container(
-          //   width: 280,
-          //   height: 120,
-          //   decoration: const BoxDecoration(
-          //       color: Color.fromARGB(255, 231, 170, 209),
-          //       borderRadius: BorderRadius.all(Radius.circular(10))),
-          //   child: Column(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: const [
-          //       Text(
-          //         "300 Puntos",
-          //         style: TextStyle(
-          //           fontSize: 30,
-          //           fontWeight: FontWeight.bold,
-          //           decorationColor: Colors.red,
-          //         ),
-          //         textAlign: TextAlign.center,
-          //       ),
-          //     ],
-          //   ),
-          // ),
           Container(
             child: Center(
               child: ListView.builder(

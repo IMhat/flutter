@@ -51,12 +51,18 @@ class _UserDetailsState extends State<_UserDetails> {
                   fontSize: 35,
                   color: Colors.white),
             ),
-            Text(
-              widget.name.toString(),
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 35,
-                  color: Colors.white),
+            SizedBox(
+              width: 180,
+              height: 40,
+              child: Text(
+                widget.name.toString(),
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                    color: Colors.white),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),

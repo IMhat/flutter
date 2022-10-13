@@ -83,9 +83,9 @@ class _UserDetailsState extends State<_UserDetails> {
                     )
                   ]),
               child: const Icon(
-                Icons.message_rounded,
+                Icons.credit_card,
                 size: 35,
-                color: Colors.green,
+                color: Colors.red,
               ),
             ),
             const SizedBox(width: 40),

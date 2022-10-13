@@ -55,7 +55,6 @@ class _ManageTaskScreenBodyState extends State<_ManageTaskScreenBody>
   TabController? controller;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     controller =
         TabController(length: 3, initialIndex: selectedPage, vsync: this);
@@ -63,11 +62,11 @@ class _ManageTaskScreenBodyState extends State<_ManageTaskScreenBody>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     controller!.dispose();
   }
 
+  final textStyle = const TextStyle(fontSize: 15, fontWeight: FontWeight.bold);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,21 +88,66 @@ class _ManageTaskScreenBodyState extends State<_ManageTaskScreenBody>
                 child: TabBar(
                   controller: controller,
                   labelColor: Colors.black,
-                  unselectedLabelColor: Colors.grey,
+                  unselectedLabelColor: Colors.white,
                   tabs: [
                     Tab(
                       child: Container(
-                        child: Text("Backlog"),
+                        padding: const EdgeInsets.only(top: 8, left: 15),
+                        width: 100,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(166, 239, 41, 27),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(20)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey[850]!.withOpacity(0.29),
+                                offset: const Offset(-10, 10),
+                                blurRadius: 10,
+                              )
+                            ]),
+                        child: Text("Backlog", style: textStyle),
                       ),
                     ),
                     Tab(
                       child: Container(
-                        child: Text("In Progress"),
+                        padding: const EdgeInsets.only(top: 8, left: 8),
+                        width: 100,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            color: (const Color(0xffF2994A)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(20)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey[850]!.withOpacity(0.29),
+                                offset: const Offset(-10, 10),
+                                blurRadius: 10,
+                              )
+                            ]),
+                        child: Text("In Progress", style: textStyle),
                       ),
                     ),
                     Tab(
                       child: Container(
-                        child: Text("Done"),
+                        padding: const EdgeInsets.only(top: 8, left: 25),
+                        width: 100,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 124, 199, 127),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(20)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey[850]!.withOpacity(0.29),
+                                offset: const Offset(-10, 10),
+                                blurRadius: 10,
+                              )
+                            ]),
+                        child: Text(
+                          "Done",
+                          style: textStyle,
+                        ),
                       ),
                     ),
                   ],
@@ -115,7 +159,7 @@ class _ManageTaskScreenBodyState extends State<_ManageTaskScreenBody>
               controller: controller,
               children: [
                 Container(
-                  margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
+                  margin: const EdgeInsets.only(top: 5, left: 20, bottom: 20),
                   color: Colors.white,
                   child: Center(
                     child: ListView.builder(
@@ -160,7 +204,7 @@ class _ManageTaskScreenBodyState extends State<_ManageTaskScreenBody>
 }
 
 Future<void> _refresh() {
-  return Future.delayed(Duration(seconds: 0));
+  return Future.delayed(const Duration(seconds: 0));
 }
 
 // Container(
@@ -226,6 +270,7 @@ Future<void> _refresh() {
 //     textAlign: TextAlign.center,
 //   ),
 // ),
+
 
 
 

@@ -81,7 +81,7 @@ class _HomePageUserState extends State<_UserHomeBody> {
                       //       color: Colors.white),
                       // ),
                       Container(
-                        margin: const EdgeInsets.only(top: 10, right: 25),
+                        margin: const EdgeInsets.only(top: 50, right: 25),
                         width: 280,
                         height: 100,
                         child: ListView.builder(
@@ -117,19 +117,10 @@ class _HomePageUserState extends State<_UserHomeBody> {
                 child: const MyButtonNotification()),
             Container(
               margin: const EdgeInsets.only(top: 60, left: 300),
-              child: Row(
-                children: [
-                  Column(
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: <Widget>[
-                      const CircleAvatar(
-                        radius: 25.0,
-                        backgroundColor: Color.fromARGB(255, 211, 211, 211),
-                        backgroundImage: AssetImage('assets/user.png'),
-                      ),
-                    ],
-                  ),
-                ],
+              child: const CircleAvatar(
+                radius: 25.0,
+                backgroundColor: Color.fromARGB(255, 211, 211, 211),
+                backgroundImage: AssetImage('assets/user.png'),
               ),
             ),
 
