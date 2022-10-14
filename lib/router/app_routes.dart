@@ -1,3 +1,4 @@
+import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../features/home/screens/home.dart';
@@ -70,6 +71,11 @@ class AppRoutes {
         icon: Icons.home,
         name: 'PantallaHome',
         screen: const HomePage()),
+    MenuOption(
+        route: 'AuthPage',
+        icon: Icons.home,
+        name: 'PantallaAuth',
+        screen: const AuthScreen()),
     // MenuOption(
     //     route: 'ListImage',
     //     icon: Icons.image,

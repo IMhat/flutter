@@ -72,7 +72,7 @@ class _DealOfDayState extends State<DealOfDay> {
                       padding: const EdgeInsets.only(left: 53, top: 15),
                       alignment: Alignment.topLeft,
                       child: Text(
-                        'MVR ${product!.price}',
+                        'Points: ${product!.price}',
                         style: const TextStyle(
                             fontSize: 18,
                             color: Color.fromARGB(255, 117, 117, 117)),

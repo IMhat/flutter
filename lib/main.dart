@@ -1,20 +1,19 @@
 import 'package:amazon_clone/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/admin/screens/admin_screen.dart';
+import 'package:amazon_clone/features/auth/screens/initial_screen.dart';
 import 'package:amazon_clone/features/auth/services/auth_service.dart';
 import 'package:amazon_clone/features/home/services/wallet_services.dart';
+import 'package:amazon_clone/features/tasks/services/task_done_service.dart';
+import 'package:amazon_clone/features/tasks/services/task_inprogress_service.dart';
+import 'package:amazon_clone/features/tasks/services/task_services.dart';
+import 'package:amazon_clone/features/wallet/services/productTransaction_service.dart';
+import 'package:amazon_clone/features/wallet/services/transaction_services.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:amazon_clone/router.dart';
 import 'package:amazon_clone/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'features/auth/screens/auth_screen.dart';
-import 'features/tasks/services/task_done_service.dart';
-import 'features/tasks/services/task_inprogress_service.dart';
-import 'features/tasks/services/task_services.dart';
-import 'features/wallet/services/productTransaction_service.dart';
-import 'features/wallet/services/transaction_services.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
@@ -51,9 +50,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Amazon Clone',
+      title: 'Smiley',
       theme: ThemeData(
-        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+        scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
         colorScheme: const ColorScheme.light(
           primary: GlobalVariables.secondaryColor,
         ),
@@ -66,7 +65,7 @@ class _MyAppState extends State<MyApp> {
           ? Provider.of<UserProvider>(context).user.type == 'user'
               ? const BottomBar()
               : const AdminScreen()
-          : const AuthScreen(),
+          : const InitialScreen(),
     );
   }
 }

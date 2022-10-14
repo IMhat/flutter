@@ -1,4 +1,3 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import '../../../constants/global_variables.dart';
@@ -15,7 +14,8 @@ class CarouselImage extends StatelessWidget {
             builder: (BuildContext context) => Image.network(
               i,
               fit: BoxFit.cover,
-              height: 200,
+              height: 100,
+              width: 300,
             ),
           );
         },

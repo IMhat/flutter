@@ -25,19 +25,20 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
-
-  final ProductDetailsServices productDetailsServices = ProductDetailsServices();
+  final ProductDetailsServices productDetailsServices =
+      ProductDetailsServices();
 
   double avgRating = 0;
   double myRating = 0;
 
-   @override
+  @override
   void initState() {
     super.initState();
     double totalRating = 0;
     for (int i = 0; i < widget.product.rating!.length; i++) {
       totalRating += widget.product.rating![i].rating;
-      if (widget.product.rating![i].userId == Provider.of<UserProvider>(context, listen: false).user.id) {
+      if (widget.product.rating![i].userId ==
+          Provider.of<UserProvider>(context, listen: false).user.id) {
         myRating = widget.product.rating![i].rating;
       }
     }
@@ -192,7 +193,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   ),
                   children: [
                     TextSpan(
-                      text: '\$${widget.product.price}',
+                      text: 'Points: ${widget.product.price}',
                       style: const TextStyle(
                         fontSize: 22,
                         color: Colors.red,

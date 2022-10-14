@@ -89,7 +89,6 @@ class _AddressScreenState extends State<AddressScreen> {
   }
 
   void onCashPaymentResult(address) {
-
     payPressed(address);
 
     if (Provider.of<UserProvider>(context, listen: false)
@@ -217,23 +216,23 @@ class _AddressScreenState extends State<AddressScreen> {
               //   onPressed: () => payPressed(address),
               // ),
               const SizedBox(height: 10),
-              GooglePayButton(
-                onPressed: () => payPressed(address),
-                paymentConfigurationAsset: 'gpay.json',
-                onPaymentResult: onGooglePayResult,
-                paymentItems: paymentItems,
-                height: 50,
-                width: double.infinity,
-                style: GooglePayButtonStyle.black,
-                type: GooglePayButtonType.buy,
-                margin: const EdgeInsets.only(top: 15),
-                loadingIndicator: const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
+              // GooglePayButton(
+              //   onPressed: () => payPressed(address),
+              //   paymentConfigurationAsset: 'gpay.json',
+              //   onPaymentResult: onGooglePayResult,
+              //   paymentItems: paymentItems,
+              //   height: 50,
+              //   width: double.infinity,
+              //   style: GooglePayButtonStyle.black,
+              //   type: GooglePayButtonType.buy,
+              //   margin: const EdgeInsets.only(top: 15),
+              //   loadingIndicator: const Center(
+              //     child: CircularProgressIndicator(),
+              //   ),
+              // ),
               const SizedBox(height: 10),
               CustomButton(
-                text: 'Cash on Delivery',
+                text: 'Pay With points',
                 onTap: () {
                   onCashPaymentResult(address);
                 },
