@@ -52,15 +52,10 @@ class InitialScreen extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          CardContainer(
-            child: Column(children: [
-              const SizedBox(height: 10),
-              const SizedBox(height: 50),
-              ChangeNotifierProvider(
-                  create: (_) => LoginFormProvider(),
-                  child: _InitialScreenForm())
-            ]),
-          ),
+          Column(children: [
+            ChangeNotifierProvider(
+                create: (_) => LoginFormProvider(), child: _InitialScreenForm())
+          ]),
         ],
       )),
     );
@@ -74,49 +69,52 @@ class _InitialScreenForm extends StatelessWidget {
     return Form(
         key: loginForm.formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const SizedBox(
-              height: 50,
-            ),
-            MaterialButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                disabledColor: Colors.grey,
-                elevation: 0,
-                color: Colors.deepPurple,
-                child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 15),
-                    child: const Text(
-                      'Comenzar',
-                      style: TextStyle(color: Colors.white),
-                    )),
-                onPressed: () {
-                  //if (!loginForm.isValidForm()) return;
-                  Navigator.pushNamed(context, 'AuthPage');
-                }),
-            // MaterialButton(
-            //     shape: RoundedRectangleBorder(
-            //         borderRadius: BorderRadius.circular(10)),
-            //     disabledColor: Colors.grey,
-            //     elevation: 0,
-            //     color: Color.fromARGB(255, 218, 179, 231),
-            //     child: Container(
-            //         padding: const EdgeInsets.symmetric(
-            //             horizontal: 20, vertical: 15),
-            //         child: const Text(
-            //           'Log in',
-            //           style: TextStyle(
-            //             color: Color(0xff5D4FB1),
-            //           ),
-            //         )),
-            //     onPressed: () {
-            //       if (!loginForm.isValidForm()) return;
-            //       Navigator.pushReplacementNamed(context, 'login');
-            //     })
-          ],
+        child: Container(
+          margin: EdgeInsets.only(right: 40),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const SizedBox(
+                height: 50,
+              ),
+              MaterialButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  disabledColor: Colors.grey,
+                  elevation: 0,
+                  color: Colors.deepPurple,
+                  child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 15),
+                      child: const Text(
+                        'Comenzar',
+                        style: TextStyle(color: Colors.white),
+                      )),
+                  onPressed: () {
+                    //if (!loginForm.isValidForm()) return;
+                    Navigator.pushNamed(context, 'AuthPage');
+                  }),
+              // MaterialButton(
+              //     shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(10)),
+              //     disabledColor: Colors.grey,
+              //     elevation: 0,
+              //     color: Color.fromARGB(255, 218, 179, 231),
+              //     child: Container(
+              //         padding: const EdgeInsets.symmetric(
+              //             horizontal: 20, vertical: 15),
+              //         child: const Text(
+              //           'Log in',
+              //           style: TextStyle(
+              //             color: Color(0xff5D4FB1),
+              //           ),
+              //         )),
+              //     onPressed: () {
+              //       if (!loginForm.isValidForm()) return;
+              //       Navigator.pushReplacementNamed(context, 'login');
+              //     })
+            ],
+          ),
         ));
   }
 }

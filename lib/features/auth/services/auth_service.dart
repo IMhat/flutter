@@ -59,7 +59,7 @@ class AuthService {
   void signInUser({
     required BuildContext context,
     required String email,
-    required String password,
+    required String password, 
   }) async {
     try {
       http.Response res = await http.post(
