@@ -1,8 +1,10 @@
+import 'package:amazon_clone/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone/common/widgets/custom_button.dart';
 import 'package:amazon_clone/common/widgets/custom_textField.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/constants/utils.dart';
 import 'package:amazon_clone/features/address/services/address_services.dart';
+import 'package:amazon_clone/features/home/screens/catalogo_screen.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:pay/pay.dart';
@@ -89,7 +91,6 @@ class _AddressScreenState extends State<AddressScreen> {
   }
 
   void onCashPaymentResult(address) {
-
     payPressed(address);
 
     if (Provider.of<UserProvider>(context, listen: false)
@@ -217,25 +218,26 @@ class _AddressScreenState extends State<AddressScreen> {
               //   onPressed: () => payPressed(address),
               // ),
               const SizedBox(height: 10),
-              GooglePayButton(
-                onPressed: () => payPressed(address),
-                paymentConfigurationAsset: 'gpay.json',
-                onPaymentResult: onGooglePayResult,
-                paymentItems: paymentItems,
-                height: 50,
-                width: double.infinity,
-                style: GooglePayButtonStyle.black,
-                type: GooglePayButtonType.buy,
-                margin: const EdgeInsets.only(top: 15),
-                loadingIndicator: const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
+              // GooglePayButton(
+              //   onPressed: () => payPressed(address),
+              //   paymentConfigurationAsset: 'gpay.json',
+              //   onPaymentResult: onGooglePayResult,
+              //   paymentItems: paymentItems,
+              //   height: 50,
+              //   width: double.infinity,
+              //   style: GooglePayButtonStyle.black,
+              //   type: GooglePayButtonType.buy,
+              //   margin: const EdgeInsets.only(top: 15),
+              //   loadingIndicator: const Center(
+              //     child: CircularProgressIndicator(),
+              //   ),
+              // ),
               const SizedBox(height: 10),
               CustomButton(
-                text: 'Cash on Delivery',
+                text: 'Pay With points',
                 onTap: () {
                   onCashPaymentResult(address);
+                  Navigator.pushNamed(context, BottomBar.routeName);
                 },
               ),
             ],

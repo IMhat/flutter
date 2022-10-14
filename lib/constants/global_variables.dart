@@ -6,12 +6,18 @@ String uri = 'https://server-flutterm.herokuapp.com';
 class GlobalVariables {
   // COLORS
   static const appBarGradient = LinearGradient(
-    colors: [
-      Color.fromARGB(255, 159, 125, 216),
-      Color.fromARGB(255, 59, 125, 216),
-    ],
-    stops: [0.5, 1.0],
-  );
+      begin: AlignmentDirectional.topCenter,
+      end: Alignment.bottomCenter,
+      stops: [
+        0.2,
+        0.4,
+        0.8
+      ],
+      colors: [
+        (Color(0xff7F00F0)),
+        Color.fromARGB(255, 165, 92, 179),
+        Color.fromARGB(255, 247, 90, 114)
+      ]);
 
   static const secondaryColor = Color.fromARGB(255, 162, 87, 223);
   static const backgroundColor = Color.fromARGB(255, 197, 209, 224);
@@ -23,7 +29,7 @@ class GlobalVariables {
 
   // STATIC IMAGES
   static const List<String> carouselImages = [
-    'https://images-na.ssl-images-amazon.com/images/G/31/Symbol/2020/00NEW/1242_450Banners/PL31_copy._CB432483346_.jpg',
+    'https://i0.wp.com/www.nativaselectta.com/wp-content/uploads/2020/07/MUNDO-GAMER-3-categorias-gamers.jpg?fit=850%2C638&ssl=1',
     'https://img.freepik.com/free-psd/fashion-sale-social-media-facebook-cover-template_233825-84.jpg?w=1380',
     'https://img.freepik.com/free-psd/digital-marketing-corporate-social-media-facebook-cover-template_233825-114.jpg?w=1380',
     'https://img.freepik.com/free-psd/fashion-sale-social-media-facebook-cover-template_233825-92.jpg?w=1380',

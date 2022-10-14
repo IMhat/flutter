@@ -49,13 +49,13 @@ class _CartProductState extends State<CartProduct> {
           margin: const EdgeInsets.symmetric(
             horizontal: 10,
           ),
-          child: Row(
+          child: Wrap(
             children: [
               Image.network(
                 product.images[0],
                 fit: BoxFit.contain,
                 height: 135,
-                width: 135,
+                width: 100,
               ),
               Column(
                 children: [
@@ -74,9 +74,9 @@ class _CartProductState extends State<CartProduct> {
                     width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
-                      '\$${product.price}',
+                      'Points: ${product.price}',
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                       maxLines: 2,

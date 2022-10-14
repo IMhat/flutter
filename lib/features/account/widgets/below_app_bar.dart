@@ -8,7 +8,7 @@ class BelowAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
+    // final user = Provider.of<UserProvider>(context).user;
     return Container(
       decoration: const BoxDecoration(gradient: GlobalVariables.appBarGradient),
       padding: const EdgeInsets.only(top: 10, bottom: 10, right: 10),
@@ -16,24 +16,24 @@ class BelowAppBar extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(
-              left: 20,
+              left: 70,
             ),
             child: RichText(
               text: TextSpan(
-                text: 'Hello, ',
+                text: 'Fallout you orders ',
                 style: const TextStyle(
                   fontSize: 20,
                   color: Colors.black,
                 ),
                 children: [
-                  TextSpan(
-                    text: user.name,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                    ),
-                  ),
+                  // TextSpan(
+                  //   text: user.name,
+                  //   style: const TextStyle(
+                  //     fontSize: 20,
+                  //     fontWeight: FontWeight.w600,
+                  //     color: Colors.black,
+                  //   ),
+                  // ),
                 ],
               ),
             ),

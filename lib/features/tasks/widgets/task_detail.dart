@@ -75,7 +75,7 @@ class _TaskDetailsState extends State<_TaskDetails> {
               child: Text(
                 widget.title.toString(),
                 style: const TextStyle(
-                    fontSize: 30,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 0, 0, 0)),
                 textAlign: TextAlign.center,

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../models/tasks.dart';
 import '../../../providers/task_form_provider.dart';
+import '../../home/widgets/button_back_home.dart';
 import '../services/task_services.dart';
 
 class ProgresTask extends StatefulWidget {
@@ -89,11 +90,18 @@ class _TaskProgresState extends State<_TaskProgres> {
     return ChangeNotifierProvider(
       create: (_) => taskServiceProvider,
       child: Scaffold(
-        appBar: AppBar(),
         backgroundColor: const Color.fromARGB(255, 218, 114, 110),
         body: SingleChildScrollView(
           child: Column(
             children: [
+              Container(
+                  margin: EdgeInsets.only(top: 50, right: 250),
+                  child: Wrap(
+                    children: const [
+                      Text("Back to home"),
+                      MyButtonBackHome(),
+                    ],
+                  )),
               Container(
                 padding: const EdgeInsets.only(top: 5, left: 10),
                 margin: const EdgeInsets.only(top: 50, right: 20),
