@@ -23,26 +23,26 @@ class AppRoutes {
         icon: Icons.manage_search_outlined,
         name: 'Gestor de Tareas',
         screen: ManageTaskScreen()),
-    MenuOption(
-        route: 'AceptTasks',
-        icon: Icons.manage_search_outlined,
-        name: 'Tarea aceptada',
-        screen: AceptTaskScreen()),
+    // MenuOption(
+    //     route: 'AceptTasks',
+    //     icon: Icons.manage_search_outlined,
+    //     name: 'Tarea aceptada',
+    //     screen: AceptTaskScreen()),
     MenuOption(
         route: 'ChallengeAcepted',
         icon: Icons.manage_search_outlined,
         name: 'Challenge acepted',
         screen: ChallengeAcepted()),
-    MenuOption(
-        route: 'ProgresTaskView',
-        icon: Icons.manage_search_outlined,
-        name: 'Progreso Tarea',
-        screen: ProgresTaskView()),
-    MenuOption(
-        route: 'ProgresTaskInprogressView',
-        icon: Icons.manage_search_outlined,
-        name: 'Progreso Tarea',
-        screen: ProgresTaskInprogressView()),
+    // MenuOption(
+    //     route: 'ProgresTaskView',
+    //     icon: Icons.manage_search_outlined,
+    //     name: 'Progreso Tarea',
+    //     screen: ProgresTaskView()),
+    // MenuOption(
+    //     route: 'ProgresTaskInprogressView',
+    //     icon: Icons.manage_search_outlined,
+    //     name: 'Progreso Tarea',
+    //     screen: ProgresTaskInprogressView()),
     MenuOption(
         route: 'Account',
         icon: Icons.manage_search_outlined,

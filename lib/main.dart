@@ -3,10 +3,7 @@ import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/admin/screens/admin_screen.dart';
 import 'package:amazon_clone/features/auth/screens/initial_screen.dart';
 import 'package:amazon_clone/features/auth/services/auth_service.dart';
-import 'package:amazon_clone/features/home/services/wallet_services.dart';
-import 'package:amazon_clone/features/tasks/services/task_done_service.dart';
-import 'package:amazon_clone/features/tasks/services/task_inprogress_service.dart';
-import 'package:amazon_clone/features/tasks/services/task_services.dart';
+
 import 'package:amazon_clone/features/wallet/services/productTransaction_service.dart';
 import 'package:amazon_clone/features/wallet/services/transaction_services.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
@@ -20,10 +17,6 @@ void main() {
     ChangeNotifierProvider(
       create: (context) => UserProvider(),
     ),
-    ChangeNotifierProvider(create: (_) => WalletService()),
-    ChangeNotifierProvider(create: (_) => TaskService()),
-    ChangeNotifierProvider(create: (_) => TaskInprogressService()),
-    ChangeNotifierProvider(create: (_) => TaskDoneService()),
     ChangeNotifierProvider(create: (_) => TransactionService()),
     ChangeNotifierProvider(create: (_) => ProductTransactionService()),
   ], child: const MyApp()));

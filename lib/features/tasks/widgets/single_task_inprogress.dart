@@ -1,18 +1,10 @@
+import 'package:amazon_clone/models/task_inprogress.dart';
 import 'package:flutter/material.dart';
 
-import '../../../models/task_inprogress.dart';
+class SingleTaskInprogress extends StatelessWidget {
+  final TaskInprogress task;
+  const SingleTaskInprogress({Key? key, required this.task}) : super(key: key);
 
-class TaskInprogressCard extends StatefulWidget {
-  final TaskInprogress taskInprogress;
-
-  const TaskInprogressCard({Key? key, required this.taskInprogress})
-      : super(key: key);
-
-  @override
-  State<TaskInprogressCard> createState() => _TaskInprogressCardState();
-}
-
-class _TaskInprogressCardState extends State<TaskInprogressCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,8 +18,8 @@ class _TaskInprogressCardState extends State<TaskInprogressCard> {
           _TaskDetails(
             //title: taskListProvider.tasks[i].title,
             // subTitle: taskListProvider.tasks[i].description,
-            title: widget.taskInprogress.title,
-            type: widget.taskInprogress.type,
+            title: task.title,
+            type: task.status,
             //subTitle: widget.task.description,
           ),
         ],

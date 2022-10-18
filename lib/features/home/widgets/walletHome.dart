@@ -1,43 +1,32 @@
-// import 'package:app_uteam/models/models.dart';
-
 import 'package:amazon_clone/models/wallet.dart';
 import 'package:flutter/material.dart';
 
-class WalletHomeCard extends StatelessWidget {
+class WalletHome extends StatelessWidget {
   final Wallet wallet;
-
-  const WalletHomeCard({Key? key, required this.wallet}) : super(key: key);
+  const WalletHome({Key? key, required this.wallet}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return _UserDetails(
+    return _WalletDetails(
       //title: taskListProvider.tasks[i].title,
       // subTitle: taskListProvider.tasks[i].description,
-      name: wallet.username,
+      name: wallet.name,
       points: wallet.balance,
     );
   }
-
-  // BoxDecoration _cardBorders() => BoxDecoration(
-  //         color: Colors.white,
-  //         borderRadius: BorderRadius.circular(25),
-  //         boxShadow: [
-  //           BoxShadow(
-  //               color: Colors.black12, offset: Offset(0, 7), blurRadius: 10)
-  //         ]);
 }
 
-class _UserDetails extends StatefulWidget {
+class _WalletDetails extends StatefulWidget {
   final dynamic name;
   final dynamic points;
 
-  const _UserDetails({this.name, this.points});
+  const _WalletDetails({this.name, this.points});
 
   @override
-  State<_UserDetails> createState() => _UserDetailsState();
+  State<_WalletDetails> createState() => _WalletDetailsState();
 }
 
-class _UserDetailsState extends State<_UserDetails> {
+class _WalletDetailsState extends State<_WalletDetails> {
   @override
   Widget build(BuildContext context) {
     return Column(

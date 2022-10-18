@@ -1,8 +1,9 @@
-import 'package:amazon_clone/features/home/services/wallet_services.dart';
-import 'package:amazon_clone/features/home/widgets/wallet_home_card.dart';
-import 'package:amazon_clone/providers/wallet_form_provider.dart';
+import 'package:amazon_clone/features/home/widgets/wallet.dart';
+// import 'package:amazon_clone/features/home/services/wallet_services.dart';
+// import 'package:amazon_clone/features/home/widgets/wallet_home_card.dart';
+// import 'package:amazon_clone/features/wallet/widgets/wallet_card.dart';
+// import 'package:amazon_clone/providers/wallet_form_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,29 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    final WalletHomeService = Provider.of<WalletService>(context);
-
-    return ChangeNotifierProvider(
-      create: (_) => WalletFormProvider(WalletHomeService.selectedWallet),
-      child: _UserHomeBody(walletHomeService: WalletHomeService),
-    );
-  }
-}
-
-class _UserHomeBody extends StatefulWidget {
-  _UserHomeBody({
-    Key? key,
-    required this.walletHomeService,
-  }) : super(key: key);
-
-  WalletService walletHomeService;
-  @override
-  _HomePageUserState createState() => _HomePageUserState();
-}
-
-class _HomePageUserState extends State<_UserHomeBody> {
   // @override
   @override
   Widget build(BuildContext context) {
@@ -84,28 +62,29 @@ class _HomePageUserState extends State<_UserHomeBody> {
                         margin: const EdgeInsets.only(top: 50, right: 25),
                         width: 280,
                         height: 100,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          scrollDirection: Axis.vertical,
-                          //itemCount: taskListProvider.tasks.length,
-                          itemCount: widget.walletHomeService.wallet.length,
+                        // child: ListView.builder(
+                        //   shrinkWrap: true,
+                        //   physics: const NeverScrollableScrollPhysics(),
+                        //   scrollDirection: Axis.vertical,
+                        //   //itemCount: taskListProvider.tasks.length,
+                        //   itemCount: widget.walletHomeService.wallet.length,
 
-                          itemBuilder: (BuildContext context, int index) =>
-                              GestureDetector(
-                            onTap: () {
-                              widget.walletHomeService.selectedWallet =
-                                  widget.walletHomeService.wallet[index].copy();
-                              // Navigator.pushNamed(
-                              //   context,
-                              //   'AceptTasks',
-                              // );
-                            },
-                            child: WalletHomeCard(
-                              wallet: widget.walletHomeService.wallet[index],
-                            ),
-                          ),
-                        ),
+                        //   itemBuilder: (BuildContext context, int index) =>
+                        //       GestureDetector(
+                        //     onTap: () {
+                        //       widget.walletHomeService.selectedWallet =
+                        //           widget.walletHomeService.wallet[index].copy();
+                        //       // Navigator.pushNamed(
+                        //       //   context,
+                        //       //   'AceptTasks',
+                        //       // );
+                        //     },
+                        //     child: WalletHomeCard(
+                        //       wallet: widget.walletHomeService.wallet[index],
+                        //     ),
+                        //   ),
+                        // ),
+                        child: Row(children: [Walletss()]),
                       )
                     ],
                   ),

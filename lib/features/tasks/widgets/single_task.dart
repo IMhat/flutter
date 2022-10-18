@@ -1,23 +1,16 @@
+import 'package:amazon_clone/models/tasks.dart';
 import 'package:flutter/material.dart';
 
-import '../../../models/task_done.dart';
+class SingleTask extends StatelessWidget {
+  final Task task;
+  const SingleTask({Key? key, required this.task}) : super(key: key);
 
-class TaskDoneCard extends StatefulWidget {
-  final TaskDone tasksDone;
-
-  const TaskDoneCard({Key? key, required this.tasksDone}) : super(key: key);
-
-  @override
-  State<TaskDoneCard> createState() => _TaskDoneCardState();
-}
-
-class _TaskDoneCardState extends State<TaskDoneCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(2.0),
       margin: const EdgeInsets.only(top: 0, bottom: 0),
-      width: 200, height: 130,
+      width: 200, height: 120,
       //decoration: _cardBorders(),
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -25,8 +18,8 @@ class _TaskDoneCardState extends State<TaskDoneCard> {
           _TaskDetails(
             //title: taskListProvider.tasks[i].title,
             // subTitle: taskListProvider.tasks[i].description,
-            title: widget.tasksDone.title,
-            type: widget.tasksDone.type,
+            title: task.title,
+            type: task.status,
             //subTitle: widget.task.description,
           ),
         ],
@@ -59,8 +52,8 @@ class _TaskDetailsState extends State<_TaskDetails> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      width: 320,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      width: 400,
       height: 125,
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 237, 236, 237),
@@ -84,7 +77,7 @@ class _TaskDetailsState extends State<_TaskDetails> {
                     width: 10,
                     height: 10,
                     decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 124, 199, 127),
+                        color: const Color.fromARGB(166, 239, 41, 27),
                         border: Border.all(
                             color: const Color.fromARGB(255, 255, 251, 251)),
                         borderRadius: BorderRadius.circular(50)),
@@ -118,7 +111,7 @@ class _TaskDetailsState extends State<_TaskDetails> {
                     width: 100,
                     height: 45,
                     decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 124, 199, 127),
+                        color: const Color.fromARGB(166, 239, 41, 27),
                         border: Border.all(
                             color: const Color.fromARGB(255, 255, 251, 251)),
                         borderRadius: BorderRadius.circular(50)),
