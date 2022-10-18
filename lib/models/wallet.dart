@@ -3,6 +3,7 @@ import 'dart:convert';
 class Wallet {
   late dynamic balance;
   late dynamic username;
+  late dynamic name;
   late dynamic updateAt;
   late dynamic createdAt;
   late dynamic _id;
@@ -10,6 +11,7 @@ class Wallet {
   Wallet(
     this.balance,
     this.username,
+    this.name,
     this.updateAt,
     this.createdAt,
     this._id,
@@ -20,6 +22,7 @@ class Wallet {
   Wallet.fromMap(Map<String, dynamic> map) {
     balance = map['balance'];
     username = map['username'];
+    name = map['name'];
     updateAt = map['updateAt'];
     createdAt = map['createdAt'];
     _id = map['id'];
@@ -28,6 +31,7 @@ class Wallet {
   Map<String, dynamic> toMap() => {
         "balance": balance,
         "username": username,
+        "name": name,
         "updateAt": updateAt,
         "createdAt": createdAt,
         "id": _id,
@@ -36,6 +40,7 @@ class Wallet {
   Wallet copy() => Wallet(
         balance,
         username,
+        name,
         updateAt,
         createdAt,
         _id,

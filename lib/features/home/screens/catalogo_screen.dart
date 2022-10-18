@@ -5,6 +5,7 @@ import 'package:amazon_clone/features/home/widgets/top_categories.dart';
 import 'package:amazon_clone/features/search/screens/search_screen.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants/global_variables.dart';
 
@@ -17,16 +18,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   void naviagteToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
   }
 
   @override
   Widget build(BuildContext context) {
+    //final WalletHomeService = Provider.of<WalletService>(context).wallet;
+
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -99,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          color: GlobalVariables.backgroundColor,
+          color: const Color.fromARGB(255, 255, 255, 255),
           child: Column(
             children: const [
               AddressBox(),

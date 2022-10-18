@@ -1,8 +1,10 @@
+import 'package:amazon_clone/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone/common/widgets/custom_button.dart';
 import 'package:amazon_clone/common/widgets/custom_textField.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/constants/utils.dart';
 import 'package:amazon_clone/features/address/services/address_services.dart';
+import 'package:amazon_clone/features/home/screens/catalogo_screen.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:pay/pay.dart';
@@ -235,6 +237,7 @@ class _AddressScreenState extends State<AddressScreen> {
                 text: 'Pay With points',
                 onTap: () {
                   onCashPaymentResult(address);
+                  Navigator.pushNamed(context, BottomBar.routeName);
                 },
               ),
             ],

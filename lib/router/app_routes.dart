@@ -1,4 +1,7 @@
+import 'package:amazon_clone/features/account/screens/account_screen.dart';
 import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
+import 'package:amazon_clone/features/home/screens/catalogo_screen.dart';
+import 'package:amazon_clone/features/home/screens/home1.dart';
 import 'package:flutter/material.dart';
 
 import '../features/home/screens/home.dart';
@@ -20,26 +23,31 @@ class AppRoutes {
         icon: Icons.manage_search_outlined,
         name: 'Gestor de Tareas',
         screen: ManageTaskScreen()),
-    MenuOption(
-        route: 'AceptTasks',
-        icon: Icons.manage_search_outlined,
-        name: 'Tarea aceptada',
-        screen: AceptTaskScreen()),
+    // MenuOption(
+    //     route: 'AceptTasks',
+    //     icon: Icons.manage_search_outlined,
+    //     name: 'Tarea aceptada',
+    //     screen: AceptTaskScreen()),
     MenuOption(
         route: 'ChallengeAcepted',
         icon: Icons.manage_search_outlined,
         name: 'Challenge acepted',
         screen: ChallengeAcepted()),
+    // MenuOption(
+    //     route: 'ProgresTaskView',
+    //     icon: Icons.manage_search_outlined,
+    //     name: 'Progreso Tarea',
+    //     screen: ProgresTaskView()),
+    // MenuOption(
+    //     route: 'ProgresTaskInprogressView',
+    //     icon: Icons.manage_search_outlined,
+    //     name: 'Progreso Tarea',
+    //     screen: ProgresTaskInprogressView()),
     MenuOption(
-        route: 'ProgresTaskView',
+        route: 'Account',
         icon: Icons.manage_search_outlined,
         name: 'Progreso Tarea',
-        screen: ProgresTaskView()),
-    MenuOption(
-        route: 'ProgresTaskInprogressView',
-        icon: Icons.manage_search_outlined,
-        name: 'Progreso Tarea',
-        screen: ProgresTaskInprogressView()),
+        screen: AccountScreen()),
     // MenuOption(
     //     route: 'Notification',
     //     icon: Icons.manage_search_outlined,
@@ -71,6 +79,11 @@ class AppRoutes {
         icon: Icons.home,
         name: 'PantallaHome',
         screen: const HomePage()),
+    MenuOption(
+        route: 'tienda',
+        icon: Icons.home,
+        name: 'PantallaHome',
+        screen: HomeScreen()),
     MenuOption(
         route: 'AuthPage',
         icon: Icons.home,

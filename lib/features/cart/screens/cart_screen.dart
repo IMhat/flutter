@@ -120,7 +120,7 @@ class _CartScreenState extends State<CartScreen> {
               child: CustomButton(
                 text: 'Proceed to Buy (${user.cart.length} items)',
                 onTap: () => navigateToAddress(sum),
-                color: const Color.fromARGB(255, 40, 192, 252),
+                color: const Color(0xff7F00F0),
               ),
             ),
             const SizedBox(height: 15),

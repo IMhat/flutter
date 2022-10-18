@@ -49,13 +49,13 @@ class _CartProductState extends State<CartProduct> {
           margin: const EdgeInsets.symmetric(
             horizontal: 10,
           ),
-          child: Row(
+          child: Wrap(
             children: [
               Image.network(
                 product.images[0],
                 fit: BoxFit.contain,
                 height: 135,
-                width: 135,
+                width: 100,
               ),
               Column(
                 children: [

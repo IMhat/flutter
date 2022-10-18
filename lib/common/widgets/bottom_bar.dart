@@ -1,5 +1,6 @@
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/account/screens/account_screen.dart';
+import 'package:amazon_clone/features/account/screens/my_account.dart';
 import 'package:amazon_clone/features/cart/screens/cart_screen.dart';
 import 'package:amazon_clone/features/home/screens/catalogo_screen.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
@@ -27,7 +28,7 @@ class _BottomBarState extends State<BottomBar> {
     const HomePage1(),
     const HomeScreen(),
     WalletScreen(),
-    const AccountScreen(),
+    MyAccountScreen(),
     const CartScreen(),
   ];
 

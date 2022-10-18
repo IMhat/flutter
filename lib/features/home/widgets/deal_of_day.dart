@@ -63,10 +63,25 @@ class _DealOfDayState extends State<DealOfDay> {
                     const SizedBox(
                       height: 20,
                     ),
-                    Image.network(
-                      product!.images[0],
-                      height: 235,
-                      fit: BoxFit.fitHeight,
+                    Container(
+                      width: 180,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color.fromARGB(255, 250, 249, 249),
+                          boxShadow: const [
+                            BoxShadow(
+                                color: Color.fromARGB(134, 56, 56, 56),
+                                blurRadius: 10.0,
+                                offset: Offset(0, 5)),
+                            BoxShadow(
+                              color: Color.fromARGB(255, 233, 232, 232),
+                            ),
+                          ]),
+                      child: Image.network(
+                        product!.images[0],
+                        height: 235,
+                        fit: BoxFit.fitHeight,
+                      ),
                     ),
                     Container(
                       padding: const EdgeInsets.only(left: 53, top: 15),

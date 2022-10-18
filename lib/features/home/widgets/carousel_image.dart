@@ -15,7 +15,7 @@ class CarouselImage extends StatelessWidget {
               i,
               fit: BoxFit.cover,
               height: 100,
-              width: 300,
+              width: 350,
             ),
           );
         },

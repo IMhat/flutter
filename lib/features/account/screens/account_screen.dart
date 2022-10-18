@@ -11,7 +11,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(
@@ -23,12 +23,12 @@ class AccountScreen extends StatelessWidget {
             children: [
               Container(
                 alignment: Alignment.topLeft,
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  width: 120,
-                  height: 45,
-                  color: Colors.black,
-                ),
+                // child: Image.asset(
+                //   'assets/images/logo.png',
+                //   width: 120,
+                //   height: 45,
+                //   color: Colors.black,
+                // ),
               ),
               Container(
                 padding: const EdgeInsets.only(left: 15, right: 15),
@@ -48,7 +48,7 @@ class AccountScreen extends StatelessWidget {
       ),
       body: Column(
         children: const [
-          BelowAppBar(),
+          //BelowAppBar(),
           SizedBox(
             height: 10,
           ),

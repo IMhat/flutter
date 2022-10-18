@@ -25,7 +25,7 @@ class SearchedProduct extends StatelessWidget {
           margin: const EdgeInsets.symmetric(
             horizontal: 10,
           ),
-          child: Row(
+          child: Wrap(
             children: [
               Image.network(
                 product.images[0],
@@ -78,7 +78,7 @@ class SearchedProduct extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.teal,
                       ),
-                      maxLines: 2, 
+                      maxLines: 2,
                     ),
                   ),
                 ],

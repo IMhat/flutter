@@ -2,57 +2,72 @@ import 'dart:convert';
 
 class Task {
   late String title;
-  late String type;
   late String priority;
   late String description;
-  late String user;
-  late dynamic points;
-  late dynamic done;
-  late String id;
+  // late List<String> images;
+  late int points;
+  late String category;
+  late String assignmentUser;
+  late String status;
+  late String createdBy;
+  // late String id;
   Task(
     this.title,
-    this.type,
     this.priority,
     this.description,
-    this.user,
+    // this.images,
     this.points,
-    this.done,
-    this.id,
+    this.category,
+    this.assignmentUser,
+    this.status,
+    this.createdBy,
+    // this.id,
   );
   factory Task.fromJson(String str) => Task.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
+
   Task.fromMap(Map<String, dynamic> map) {
     title = map['title'];
-    type = map['type'];
     priority = map['priority'];
     description = map['description'];
-    user = map['user'];
+    // points =
+    // map['quantity']?.toDouble() ?? 0.0;
+    // images  =
+    // List<String>.from(map['images']);
+    // images = map['images'];
     points = map['points'];
-    done = map['done'];
-    id = map['id'];
+    category = map['category'];
+    assignmentUser = map['assignmentUser'];
+    status = map['status'];
+    createdBy = map['createdBy'];
+    // id = map['id'];
   }
 
   Map<String, dynamic> toMap() => {
         "title": title,
-        "type": type,
         "priority": priority,
         "description": description,
-        "user": user,
+        // "images": images,
         "points": points,
-        "done": done,
-        "id": id,
+        "category": category,
+        "assignmentUser": assignmentUser,
+        "status": status,
+        "createdBy": createdBy,
+        // "id": id,
       };
 
   Task copy() => Task(
         title,
-        type,
         priority,
         description,
-        user,
+        // images,
         points,
-        done,
-        id,
+        category,
+        assignmentUser,
+        status,
+        createdBy,
+        // id,
       );
 
   then(Null Function(dynamic value) param0) {}
