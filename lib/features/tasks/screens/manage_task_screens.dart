@@ -7,8 +7,6 @@ import '../../../providers/task_form_provider.dart';
 import '../widgets/task.dart';
 
 import '../widgets/taskDone.dart';
-import 'inprogress_screen.dart';
-import 'task_done_screen.dart';
 
 class ManageTaskScreen extends StatefulWidget {
   const ManageTaskScreen({Key? key}) : super(key: key);

@@ -8,17 +8,20 @@ class SingleNegativeTransaction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.bottomLeft,
-      children: [
-        _UserDetails(
-          //title: taskListProvider.tasks[i].title,
-          // subTitle: taskListProvider.tasks[i].description,
-          name: transaction.trnxSummary,
-          points: transaction.amount,
-          summary: transaction.summary,
-        ),
-      ],
+    return Container(
+      height: 125,
+      child: Stack(
+        alignment: Alignment.bottomLeft,
+        children: [
+          _UserDetails(
+            //title: taskListProvider.tasks[i].title,
+            // subTitle: taskListProvider.tasks[i].description,
+            name: transaction.trnxSummary,
+            points: transaction.amount,
+            summary: transaction.summary,
+          ),
+        ],
+      ),
     );
   }
 }

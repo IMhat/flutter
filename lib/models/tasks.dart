@@ -10,7 +10,7 @@ class Task {
   late String assignmentUser;
   late String status;
   late String createdBy;
-  // late String id;
+  late String id;
   Task(
     this.title,
     this.priority,
@@ -21,7 +21,7 @@ class Task {
     this.assignmentUser,
     this.status,
     this.createdBy,
-    // this.id,
+    this.id,
   );
   factory Task.fromJson(String str) => Task.fromMap(json.decode(str));
 
@@ -41,7 +41,7 @@ class Task {
     assignmentUser = map['assignmentUser'];
     status = map['status'];
     createdBy = map['createdBy'];
-    // id = map['id'];
+    id = map['_id'];
   }
 
   Map<String, dynamic> toMap() => {
@@ -54,7 +54,7 @@ class Task {
         "assignmentUser": assignmentUser,
         "status": status,
         "createdBy": createdBy,
-        // "id": id,
+        "_id": id,
       };
 
   Task copy() => Task(
@@ -67,7 +67,7 @@ class Task {
         assignmentUser,
         status,
         createdBy,
-        // id,
+        id,
       );
 
   then(Null Function(dynamic value) param0) {}

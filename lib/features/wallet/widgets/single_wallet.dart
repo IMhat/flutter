@@ -8,7 +8,7 @@ class SingleWallet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
+      width: 300,
       padding: const EdgeInsets.all(10),
       child: Stack(
         alignment: Alignment.bottomLeft,

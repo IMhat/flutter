@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_background/particles.dart';
+import 'package:smiley_app/features/tasks/screens/task_inprogress_detail_screen.dart';
 
 class ChallengeAcepted extends StatelessWidget {
   const ChallengeAcepted({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class MyButtonObjetives extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          'ProgresTaskView',
+          'ManageTasks',
         );
       },
       // The custom button
@@ -59,7 +60,7 @@ class MyButtonObjetives extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: const Text(
-          'MIS OBJETIVOS',
+          'MIS TAREAS',
           style: TextStyle(
               color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,

@@ -1,9 +1,12 @@
+import 'package:smiley_app/features/account/services/account_services.dart';
 import 'package:smiley_app/features/home/widgets/wallet.dart';
 // import 'package:amazon_clone/features/home/services/wallet_services.dart';
 // import 'package:amazon_clone/features/home/widgets/wallet_home_card.dart';
 // import 'package:amazon_clone/features/wallet/widgets/wallet_card.dart';
 // import 'package:amazon_clone/providers/wallet_form_provider.dart';
 import 'package:flutter/material.dart';
+
+import '../../../models/tasks.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +16,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Task>? tasks;
+
+  final AccountServices accountServices = AccountServices();
+  void fetchWallet() async {
+    tasks = await accountServices.fetchMyBacklogTask(context: context);
+    setState(() {});
+  }
+
   // @override
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,4 @@
+import 'package:smiley_app/common/widgets/bottom_bar.dart';
 import 'package:smiley_app/common/widgets/custom_button.dart';
 import 'package:smiley_app/common/widgets/stars.dart';
 import 'package:smiley_app/constants/global_variables.dart';
@@ -31,6 +32,27 @@ class TaskInprogressDetailsScreen extends StatefulWidget {
 class _TaskInprogressDetailsScreenState
     extends State<TaskInprogressDetailsScreen> {
   final AccountServices productDetailsServices = AccountServices();
+
+  void acept() {
+    productDetailsServices.accept(
+      context: context,
+      assignmentUser: widget.task.assignmentUser,
+      category: widget.task.category,
+      createdBy: widget.task.createdBy,
+      description: widget.task.description,
+      points: widget.task.points,
+      priority: widget.task.priority,
+      id: widget.task.id,
+      title: widget.task.title,
+      status: "done",
+
+      // Navigator.pushNamed(
+      //   context,
+      //   'ChallengeAcepted',
+      // );
+    );
+    Navigator.pushNamed(context, BottomBar.routeName);
+  }
 
   // double avgRating = 0;
   // double myRating = 0;
@@ -66,209 +88,276 @@ class _TaskInprogressDetailsScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: AppBar(
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
-            ),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Container(
-                  height: 42,
-                  margin: const EdgeInsets.only(left: 15),
-                  child: Material(
-                    borderRadius: BorderRadius.circular(7),
-                    elevation: 1,
-                    child: TextFormField(
-                      onFieldSubmitted: navigateToSearchScreen,
-                      decoration: InputDecoration(
-                        prefixIcon: InkWell(
-                          onTap: () {},
-                          child: const Padding(
-                            padding: EdgeInsets.only(
-                              left: 6,
-                            ),
-                            child: Icon(
-                              Icons.search,
-                              color: Colors.black,
-                              size: 23,
-                            ),
-                          ),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        contentPadding: const EdgeInsets.only(top: 10),
-                        border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(7),
-                          ),
-                          borderSide: BorderSide.none,
-                        ),
-                        enabledBorder: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(7),
-                          ),
-                          borderSide: BorderSide(
-                            color: Colors.black38,
-                            width: 1,
-                          ),
-                        ),
-                        hintText: 'Search Catalog',
-                        hintStyle: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                color: Colors.transparent,
-                height: 42,
-                margin: const EdgeInsets.symmetric(horizontal: 10),
-                child: const Icon(Icons.mic, color: Colors.black, size: 25),
-              ),
-            ],
-          ),
-        ),
-      ),
+      backgroundColor: const Color.fromARGB(255, 218, 114, 110),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    widget.task.status,
-                  ),
-                  // Stars(rating: avgRating),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 10,
-              ),
-              child: Text(
-                widget.task.title,
-                style: const TextStyle(fontSize: 15),
-              ),
-            ),
-            // CarouselSlider(
-            //   items: widget.product.images.map(
-            //     (i) {
-            //       return Builder(
-            //         builder: (BuildContext context) => Image.network(
-            //           i,
-            //           fit: BoxFit.contain,
-            //           height: 200,
-            //         ),
-            //       );
-            //     },
-            //   ).toList(),
-            //   options: CarouselOptions(
-            //     viewportFraction: 1,
-            //     height: 300,
-            //   ),
-            // ),
             Container(
-              color: Colors.black12,
-              height: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: RichText(
-                text: TextSpan(
-                  text: 'Deal Price: ',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black,
+                margin: EdgeInsets.only(top: 50, right: 250),
+                child: Wrap(
+                  children: const [
+                    Text("Back to home"),
+                    //MyButtonBackHome(),
+                  ],
+                )),
+            Container(
+              padding: const EdgeInsets.only(left: 10),
+              margin: const EdgeInsets.only(top: 60, right: 20),
+              width: 300,
+              height: 70,
+              child: const Text(
+                "Progreso de tarea",
+                style: TextStyle(
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
-                  ),
+                    color: Color.fromARGB(255, 255, 255, 255)),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 5),
+              margin: const EdgeInsets.only(top: 50, left: 120),
+              width: 200,
+              height: 45,
+              decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 235, 188, 100),
+                  border: Border.all(
+                      color: const Color.fromARGB(255, 255, 251, 251)),
+                  borderRadius: BorderRadius.circular(50)),
+              child: Text(
+                widget.task.status,
+                style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 0, 0, 0)),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            Container(
+              decoration: _cardBorders(),
+              margin: const EdgeInsetsDirectional.only(top: 10),
+              width: 500,
+              height: 700,
+              child: Container(
+                margin: const EdgeInsets.only(top: 30, bottom: 20),
+                width: 100,
+                height: 80,
+                decoration: _cardBorders(),
+                child: Column(
                   children: [
-                    TextSpan(
-                      text: 'Points: ${widget.task.points}',
-                      style: const TextStyle(
-                        fontSize: 22,
-                        color: Colors.red,
-                        fontWeight: FontWeight.w500,
+                    Wrap(
+                      alignment: WrapAlignment.spaceAround,
+                      spacing: 80.0,
+                      children: [
+                        SizedBox(
+                          width: 330,
+                          height: 60,
+                          child: Text(
+                            widget.task.title,
+                            style: const TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.start,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        // Text(
+                        //   widget.points.toString(),
+                        //   style: const TextStyle(
+                        //       fontSize: 20,
+                        //       fontWeight: FontWeight.bold,
+                        //       color: Colors.blue),
+                        //   textAlign: TextAlign.start,
+                        // ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      margin: const EdgeInsets.only(top: 10, right: 150),
+                      child: const Text(
+                        "Objetivo",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.start,
                       ),
                     ),
+                    Container(
+                      padding: const EdgeInsets.only(top: 0, left: 5, right: 5),
+                      margin: const EdgeInsets.only(
+                        top: 20,
+                      ),
+                      width: 340,
+                      height: 200,
+                      child: Text(
+                        widget.task.description,
+                        style: const TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    //Button change state of type
+
+                    Column(
+                      children: [
+                        Container(
+                          width: 340,
+                          height: 200,
+                          child: Wrap(
+                            alignment: WrapAlignment.spaceAround,
+                            children: [
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: const [
+                                  Text(
+                                    "01",
+                                    style: TextStyle(
+                                        fontSize: 25, color: Colors.grey),
+                                  ),
+                                  Text("02",
+                                      style: TextStyle(
+                                          fontSize: 25, color: Colors.grey)),
+                                  Text("03",
+                                      style: TextStyle(
+                                          fontSize: 25, color: Colors.grey)),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: const [
+                                  SizedBox(
+                                    width: 250,
+                                    height: 40,
+                                    child: Text(
+                                      "Maquetado",
+                                      style: TextStyle(
+                                          fontSize: 25, color: Colors.black),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 250,
+                                    height: 40,
+                                    child: Text(
+                                      "Analisís de requerimientos",
+                                      style: TextStyle(
+                                          fontSize: 20, color: Colors.black),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Text("Discovery",
+                                      style: TextStyle(
+                                          fontSize: 25, color: Colors.black)),
+                                ],
+                              ),
+                              Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: const [
+                                  Icon(
+                                    Icons.check_circle,
+                                    color: Colors.blue,
+                                    size: 40,
+                                  ),
+                                  Icon(
+                                    Icons.play_circle_fill_outlined,
+                                    color: Colors.blue,
+                                    size: 40,
+                                  ),
+                                  Icon(
+                                    Icons.lock_rounded,
+                                    color: Colors.blue,
+                                    size: 40,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 16),
+                      width: 350,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(30),
+                              bottomLeft: Radius.zero,
+                              bottomRight: Radius.zero),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey[850]!.withOpacity(0.40),
+                              blurRadius: 10,
+                            )
+                          ]),
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 15),
+                        child: Wrap(
+                          alignment: WrapAlignment.spaceAround,
+                          children: [
+                            Container(
+                              width: 100,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 247, 220, 220),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Icon(
+                                Icons.star_border,
+                                size: 40,
+                                color: Color.fromARGB(255, 255, 121, 64),
+                              ),
+                            ),
+                            Container(
+                              width: 200,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                    begin: AlignmentDirectional.topEnd,
+                                    colors: [
+                                      Color.fromARGB(255, 242, 133, 157),
+                                      Color.fromARGB(255, 167, 79, 211),
+                                    ]),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: OutlinedButton.icon(
+                                icon: const Icon(Icons.check,
+                                    color: Colors.black),
+                                label: const Text("Done",
+                                    style: TextStyle(color: Colors.white)),
+                                onPressed: () {
+                                  acept();
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(widget.task.description),
-            ),
-            Container(
-              color: Colors.black12,
-              height: 5,
-            ),
-            // Padding(
-            //   padding: const EdgeInsets.all(10),
-            //   child: CustomButton(
-            //     text: 'Buy Now',
-            //     onTap: () {},
-            //   ),
-            // ),
-            const SizedBox(height: 10),
-            // Padding(
-            //   padding: const EdgeInsets.all(10),
-            //   child: CustomButton(
-            //     text: 'Add to Cart',
-            //     onTap: addToCart,
-            //     color: const Color.fromARGB(255, 40, 192, 252),
-            //   ),
-            // ),
-            const SizedBox(height: 10),
-            Container(
-              color: Colors.black12,
-              height: 5,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Text(
-                'Rate The Product',
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            // RatingBar.builder(
-            //   initialRating: myRating,
-            //   minRating: 1,
-            //   direction: Axis.horizontal,
-            //   allowHalfRating: true,
-            //   itemCount: 5,
-            //   itemPadding: const EdgeInsets.symmetric(horizontal: 4),
-            //   itemBuilder: (context, _) => const Icon(
-            //     Icons.star,
-            //     color: GlobalVariables.starColor,
-            //   ),
-            //   onRatingUpdate: (rating) {
-            //     productDetailsServices.rateProduct(
-            //       context: context,
-            //       product: widget.product,
-            //       rating: rating,
-            //     );
-            //   },
-            // )
           ],
         ),
       ),
     );
   }
 }
+
+BoxDecoration _cardBorders() => BoxDecoration(
+        color: const Color.fromARGB(255, 255, 255, 255),
+        borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(30),
+            bottomLeft: Radius.zero,
+            bottomRight: Radius.zero),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey[850]!.withOpacity(0.29),
+            offset: const Offset(-10, 15),
+            blurRadius: 10,
+          )
+        ]);

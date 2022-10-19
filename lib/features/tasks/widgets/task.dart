@@ -68,10 +68,12 @@ class _TasksState extends State<Tasks> {
 
                 // DISPLAY ORDERS
                 Container(
-                  height: 900,
-                  width: 350,
+                  margin: EdgeInsets.only(right: 20),
+                  width: 330,
                   padding: const EdgeInsets.only(left: 10, top: 20, right: 0),
                   child: ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     itemCount: tasks!.length,
                     itemBuilder: (context, index) {

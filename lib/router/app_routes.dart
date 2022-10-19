@@ -5,11 +5,10 @@ import 'package:smiley_app/features/home/screens/home1.dart';
 import 'package:flutter/material.dart';
 
 import '../features/home/screens/home.dart';
-import '../features/tasks/screens/acept_task.dart';
+
 import '../features/tasks/screens/challenge_acept.dart';
 import '../features/tasks/screens/manage_task_screens.dart';
-import '../features/tasks/screens/progres_task_view.dart';
-import '../features/tasks/screens/progress_taskInprogress_view.dart';
+
 import '../models/menu_options.dart';
 
 //import '../screens/image_screens.dart';
