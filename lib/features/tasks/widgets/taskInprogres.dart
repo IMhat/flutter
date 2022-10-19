@@ -7,6 +7,7 @@ import 'package:smiley_app/models/task_inprogress.dart';
 
 import 'package:flutter/material.dart';
 
+import '../screens/task_inprogress_detail_screen.dart';
 import 'single_task_inprogress.dart';
 
 class TasksInprogres extends StatefulWidget {
@@ -66,20 +67,22 @@ class _TasksInprogresState extends State<TasksInprogres> {
 
               // DISPLAY ORDERS
               Container(
-                height: 150,
-                width: 350,
+                margin: EdgeInsets.only(right: 20),
+                width: 330,
                 padding: const EdgeInsets.only(left: 10, top: 20, right: 0),
                 child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.vertical,
                   itemCount: tasks!.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        // Navigator.pushNamed(
-                        //   context,
-                        //   OrderDetailScreen.routeName,
-                        //   arguments: wallet![index],
-                        // );
+                        Navigator.pushNamed(
+                          context,
+                          TaskInprogressDetailsScreen.routeName,
+                          arguments: tasks![index],
+                        );
                       },
                       child: SingleTaskInprogress(
                         task: tasks![index],

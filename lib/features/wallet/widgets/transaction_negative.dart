@@ -67,7 +67,7 @@ class _TransactionNegativeState extends State<TransactionNegative> {
 
               // DISPLAY ORDERS
               Container(
-                height: 150,
+                height: 250,
                 width: 350,
                 padding: const EdgeInsets.only(left: 10, top: 20, right: 0),
                 child: ListView.builder(

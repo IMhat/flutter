@@ -62,7 +62,8 @@ class _TaskDetailsState extends State<_TaskDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return 
+    Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(

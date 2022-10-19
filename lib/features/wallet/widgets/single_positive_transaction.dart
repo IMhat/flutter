@@ -9,7 +9,7 @@ class SinglePositiveTransaction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 125,
       child: Stack(
         alignment: Alignment.bottomLeft,
         children: [
@@ -44,7 +44,7 @@ class _TransactionDetailsState extends State<_TransactionDetails> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         width: 330,
-        height: 140,
+        height: 120,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(20)),
