@@ -1,13 +1,13 @@
-import 'package:amazon_clone/common/widgets/bottom_bar.dart';
-import 'package:amazon_clone/features/address/screens/address_screen.dart';
-import 'package:amazon_clone/features/admin/screens/add_product_screen.dart';
-import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
-import 'package:amazon_clone/features/home/screens/category_deals_screen.dart';
-import 'package:amazon_clone/features/order_details/screens/order_details_screen.dart';
-import 'package:amazon_clone/features/product_details/screens/product_details_screen.dart';
-import 'package:amazon_clone/features/search/screens/search_screen.dart';
-import 'package:amazon_clone/models/order.dart';
-import 'package:amazon_clone/models/product.dart';
+import 'package:smiley_app/common/widgets/bottom_bar.dart';
+import 'package:smiley_app/features/address/screens/address_screen.dart';
+import 'package:smiley_app/features/admin/screens/add_product_screen.dart';
+import 'package:smiley_app/features/auth/screens/auth_screen.dart';
+import 'package:smiley_app/features/home/screens/category_deals_screen.dart';
+import 'package:smiley_app/features/order_details/screens/order_details_screen.dart';
+import 'package:smiley_app/features/product_details/screens/product_details_screen.dart';
+import 'package:smiley_app/features/search/screens/search_screen.dart';
+import 'package:smiley_app/models/order.dart';
+import 'package:smiley_app/models/product.dart';
 import 'package:flutter/material.dart';
 
 import 'features/home/screens/catalogo_screen.dart';

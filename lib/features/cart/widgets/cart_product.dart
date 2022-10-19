@@ -1,8 +1,8 @@
-import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/features/cart/services/cart_services.dart';
-import 'package:amazon_clone/features/product_details/services/product_details_services.dart';
-import 'package:amazon_clone/models/product.dart';
-import 'package:amazon_clone/providers/user_provider.dart';
+import 'package:smiley_app/constants/global_variables.dart';
+import 'package:smiley_app/features/cart/services/cart_services.dart';
+import 'package:smiley_app/features/product_details/services/product_details_services.dart';
+import 'package:smiley_app/models/product.dart';
+import 'package:smiley_app/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

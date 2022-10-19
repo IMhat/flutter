@@ -1,42 +1,26 @@
-// import 'package:app_uteam/models/models.dart';
-
+import 'package:smiley_app/models/transaction_Negative.dart';
 import 'package:flutter/material.dart';
 
-import '../../../models/transaction.dart';
-
-class TransactionCard extends StatelessWidget {
-  final Transaction transaction;
-
-  const TransactionCard({Key? key, required this.transaction})
+class SingleNegativeTransaction extends StatelessWidget {
+  final negativeTransaction transaction;
+  const SingleNegativeTransaction({Key? key, required this.transaction})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 350,
-      height: 150,
-      child: Stack(
-        alignment: Alignment.bottomLeft,
-        children: [
-          _UserDetails(
-            //title: taskListProvider.tasks[i].title,
-            // subTitle: taskListProvider.tasks[i].description,
-            name: transaction.trnxSummary,
-            points: transaction.amount,
-            summary: transaction.summary,
-          ),
-        ],
-      ),
+    return Stack(
+      alignment: Alignment.bottomLeft,
+      children: [
+        _UserDetails(
+          //title: taskListProvider.tasks[i].title,
+          // subTitle: taskListProvider.tasks[i].description,
+          name: transaction.trnxSummary,
+          points: transaction.amount,
+          summary: transaction.summary,
+        ),
+      ],
     );
   }
-
-  // BoxDecoration _cardBorders() => BoxDecoration(
-  //         color: Colors.white,
-  //         borderRadius: BorderRadius.circular(25),
-  //         boxShadow: [
-  //           BoxShadow(
-  //               color: Colors.black12, offset: Offset(0, 7), blurRadius: 10)
-  //         ]);
 }
 
 class _UserDetails extends StatefulWidget {
@@ -56,8 +40,8 @@ class _UserDetailsState extends State<_UserDetails> {
     return Center(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        width: 350,
-        height: 140,
+        width: 330,
+        height: 120,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -71,7 +55,7 @@ class _UserDetailsState extends State<_UserDetails> {
         child: Row(
           children: [
             Container(
-              width: 350,
+              width: 50,
               height: 50,
               decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 200, 198, 198),
@@ -84,9 +68,9 @@ class _UserDetailsState extends State<_UserDetails> {
                     )
                   ]),
               child: const Icon(
-                Icons.message_rounded,
+                Icons.credit_card,
                 size: 35,
-                color: Colors.green,
+                color: Colors.red,
               ),
             ),
             const SizedBox(width: 40),
@@ -105,7 +89,7 @@ class _UserDetailsState extends State<_UserDetails> {
                 ),
                 Row(
                   children: [
-                    const Text("Obtuviste"),
+                    const Text("Gastaste"),
                     const SizedBox(width: 5),
                     Text(
                       widget.points.toString(),

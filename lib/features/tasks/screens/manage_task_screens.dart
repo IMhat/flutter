@@ -1,4 +1,4 @@
-import 'package:amazon_clone/features/tasks/widgets/taskInprogres.dart';
+import 'package:smiley_app/features/tasks/widgets/taskInprogres.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -125,7 +125,10 @@ class _ManageTaskScreenState extends State<ManageTaskScreen>
                   margin: const EdgeInsets.only(top: 5, left: 20, bottom: 20),
                   color: Colors.white,
                   child: Tasks()),
-              //),
+              // Container(
+              //   child: Text('hola'),
+              // ),
+
               Container(
                 margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
                 child: TasksInprogres(),

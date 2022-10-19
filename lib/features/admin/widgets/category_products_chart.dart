@@ -1,4 +1,4 @@
-import 'package:amazon_clone/features/admin/model/sales.dart';
+import 'package:smiley_app/features/admin/model/sales.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 

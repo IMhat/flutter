@@ -1,5 +1,5 @@
-import 'package:amazon_clone/features/home/screens/home.dart';
-import 'package:amazon_clone/features/home/screens/home_page_body.dart';
+import 'package:smiley_app/features/home/screens/home.dart';
+import 'package:smiley_app/features/home/screens/home_page_body.dart';
 
 import 'package:flutter/material.dart';
 

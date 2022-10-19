@@ -1,24 +1,24 @@
 import 'package:smiley_app/common/widgets/loader.dart';
 
 import 'package:smiley_app/features/account/services/account_services.dart';
-import 'package:smiley_app/models/task_done.dart';
+import 'package:smiley_app/models/transaction_Negative.dart';
 
 // import 'package:amazon_clone/features/order_details/screens/order_details_screen.dart';
 
 import 'package:flutter/material.dart';
 
-import 'single_task_done.dart';
+import 'single_negative_transaction.dart';
 
-class TasksDone extends StatefulWidget {
-  const TasksDone({Key? key}) : super(key: key);
+class TransactionNegative extends StatefulWidget {
+  const TransactionNegative({Key? key}) : super(key: key);
 
   @override
-  State<TasksDone> createState() => _TasksDoneState();
+  State<TransactionNegative> createState() => _TransactionNegativeState();
 }
 
-class _TasksDoneState extends State<TasksDone> {
+class _TransactionNegativeState extends State<TransactionNegative> {
   // temporary list
-  List<TaskDone>? tasks;
+  List<negativeTransaction>? transaction;
 
   final AccountServices accountServices = AccountServices();
 
@@ -29,13 +29,14 @@ class _TasksDoneState extends State<TasksDone> {
   }
 
   void fetchWallet() async {
-    tasks = await accountServices.fetchMyDoneTask(context: context);
+    transaction = await accountServices.fetchMyWalletNegativeTransaction(
+        context: context);
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return tasks == null
+    return transaction == null
         ? const Loader()
         : Column(
             children: [
@@ -70,8 +71,8 @@ class _TasksDoneState extends State<TasksDone> {
                 width: 350,
                 padding: const EdgeInsets.only(left: 10, top: 20, right: 0),
                 child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: tasks!.length,
+                  scrollDirection: Axis.vertical,
+                  itemCount: transaction!.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
@@ -81,8 +82,8 @@ class _TasksDoneState extends State<TasksDone> {
                         //   arguments: wallet![index],
                         // );
                       },
-                      child: SingleTaskDone(
-                        task: tasks![index],
+                      child: SingleNegativeTransaction(
+                        transaction: transaction![index],
                       ),
                     );
                   },

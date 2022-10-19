@@ -1,10 +1,10 @@
-import 'package:amazon_clone/common/widgets/custom_button.dart';
-import 'package:amazon_clone/common/widgets/stars.dart';
-import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/features/product_details/services/product_details_services.dart';
-import 'package:amazon_clone/features/search/screens/search_screen.dart';
-import 'package:amazon_clone/models/product.dart';
-import 'package:amazon_clone/providers/user_provider.dart';
+import 'package:smiley_app/common/widgets/custom_button.dart';
+import 'package:smiley_app/common/widgets/stars.dart';
+import 'package:smiley_app/constants/global_variables.dart';
+import 'package:smiley_app/features/product_details/services/product_details_services.dart';
+import 'package:smiley_app/features/search/screens/search_screen.dart';
+import 'package:smiley_app/models/product.dart';
+import 'package:smiley_app/providers/user_provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';

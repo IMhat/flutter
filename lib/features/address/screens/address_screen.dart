@@ -1,11 +1,12 @@
-import 'package:amazon_clone/common/widgets/bottom_bar.dart';
-import 'package:amazon_clone/common/widgets/custom_button.dart';
-import 'package:amazon_clone/common/widgets/custom_textField.dart';
-import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/constants/utils.dart';
-import 'package:amazon_clone/features/address/services/address_services.dart';
-import 'package:amazon_clone/features/home/screens/catalogo_screen.dart';
-import 'package:amazon_clone/providers/user_provider.dart';
+import 'package:smiley_app/common/widgets/bottom_bar.dart';
+import 'package:smiley_app/common/widgets/custom_button.dart';
+import 'package:smiley_app/common/widgets/custom_textField.dart';
+import 'package:smiley_app/constants/global_variables.dart';
+import 'package:smiley_app/constants/utils.dart';
+import 'package:smiley_app/features/account/services/account_services.dart';
+import 'package:smiley_app/features/address/services/address_services.dart';
+
+import 'package:smiley_app/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:pay/pay.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +29,8 @@ class _AddressScreenState extends State<AddressScreen> {
   final TextEditingController areaController = TextEditingController();
   final TextEditingController pincodeController = TextEditingController();
   final TextEditingController cityController = TextEditingController();
+
+  final AccountServices accountServices = AccountServices();
 
   final _addressFormKey = GlobalKey<FormState>();
 
@@ -57,6 +60,45 @@ class _AddressScreenState extends State<AddressScreen> {
     pincodeController.dispose();
     cityController.dispose();
   }
+
+  void exchangeProduct(user) {
+    if (widget.totalAmount.isNotEmpty) {
+      accountServices.exchange(
+        context: context,
+        fromUsername: user,
+        amount: double.parse(widget.totalAmount),
+        summary: 'Exchange',
+      );
+    }
+  }
+  // void exchangeProduct(user) {
+
+  //   try{
+  //       accountServices.exchange(
+  //       context: context,
+  //       fromUsername: user,
+  //       amount: double.parse(widget.totalAmount),
+  //       summary: 'Exchange',
+  //     );
+  //     onSuccess: () {
+
+  //      },
+
+  //   } catch(e){
+
+  //   }
+
+  //   if (widget.totalAmount.isNotEmpty) {
+  //     accountServices.exchange(
+  //       context: context,
+  //       fromUsername: user,
+  //       amount: double.parse(widget.totalAmount),
+  //       summary: 'Exchange',
+
+  //     );
+
+  //   }
+  // }
 
 // REQUIRES IOS 11+
 
@@ -91,20 +133,44 @@ class _AddressScreenState extends State<AddressScreen> {
   }
 
   void onCashPaymentResult(address) {
-    payPressed(address);
+    try {
+      payPressed(address);
 
-    if (Provider.of<UserProvider>(context, listen: false)
-        .user
-        .address
-        .isEmpty) {
-      addressServices.saveUserAddress(
-          context: context, address: addressToBeUsed);
-    }
-    addressServices.placeOrder(
-      context: context,
-      address: addressToBeUsed,
-      totalSum: double.parse(widget.totalAmount),
-    );
+      if (Provider.of<UserProvider>(context, listen: false)
+          .user
+          .address
+          .isEmpty) {
+        addressServices.saveUserAddress(
+            context: context, address: addressToBeUsed);
+      }
+      addressServices.placeOrder(
+        context: context,
+        address: addressToBeUsed,
+        totalSum: double.parse(widget.totalAmount),
+      );
+
+      // accountServices.exchange(
+      //   context: context,
+      //   fromUsername: user,
+      //   amount: double.parse(widget.totalAmount),
+      //   summary: 'Exchange',
+      // );
+    } catch (e) {}
+
+    // payPressed(address);
+
+    // if (Provider.of<UserProvider>(context, listen: false)
+    //     .user
+    //     .address
+    //     .isEmpty) {
+    //   addressServices.saveUserAddress(
+    //       context: context, address: addressToBeUsed);
+    // }
+    // addressServices.placeOrder(
+    //   context: context,
+    //   address: addressToBeUsed,
+    //   totalSum: double.parse(widget.totalAmount),
+    // );
   }
 
   void payPressed(String addressFromProvider) {
@@ -132,6 +198,7 @@ class _AddressScreenState extends State<AddressScreen> {
   @override
   Widget build(BuildContext context) {
     var address = context.watch<UserProvider>().user.address;
+    var user = context.watch<UserProvider>().user.email;
 
     return Scaffold(
       appBar: PreferredSize(
@@ -236,7 +303,10 @@ class _AddressScreenState extends State<AddressScreen> {
               CustomButton(
                 text: 'Pay With points',
                 onTap: () {
+                  exchangeProduct(user);
+
                   onCashPaymentResult(address);
+
                   Navigator.pushNamed(context, BottomBar.routeName);
                 },
               ),

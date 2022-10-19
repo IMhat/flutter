@@ -1,7 +1,7 @@
-import 'package:amazon_clone/common/widgets/loader.dart';
-import 'package:amazon_clone/features/admin/model/sales.dart';
-import 'package:amazon_clone/features/admin/services/admin_services.dart';
-import 'package:amazon_clone/features/admin/widgets/category_products_chart.dart';
+import 'package:smiley_app/common/widgets/loader.dart';
+import 'package:smiley_app/features/admin/model/sales.dart';
+import 'package:smiley_app/features/admin/services/admin_services.dart';
+import 'package:smiley_app/features/admin/widgets/category_products_chart.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 

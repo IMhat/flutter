@@ -1,4 +1,4 @@
-import 'package:amazon_clone/models/task_inprogress.dart';
+import 'package:smiley_app/models/task_inprogress.dart';
 import 'package:flutter/material.dart';
 
 class SingleTaskInprogress extends StatelessWidget {
@@ -72,23 +72,23 @@ class _TaskDetailsState extends State<_TaskDetails> {
             children: [
               Row(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.only(top: 5),
-                    width: 10,
-                    height: 10,
-                    decoration: BoxDecoration(
-                        color: (const Color(0xffF2994A)),
-                        border: Border.all(
-                            color: const Color.fromARGB(255, 255, 251, 251)),
-                        borderRadius: BorderRadius.circular(50)),
-                  ),
+                  // Container(
+                  //   padding: const EdgeInsets.only(top: 5),
+                  //   width: 10,
+                  //   height: 10,
+                  //   decoration: BoxDecoration(
+                  //       color: (const Color(0xffF2994A)),
+                  //       border: Border.all(
+                  //           color: const Color.fromARGB(255, 255, 251, 251)),
+                  //       borderRadius: BorderRadius.circular(50)),
+                  // ),
                   SizedBox(
-                    width: 150,
+                    width: 200,
                     height: 45,
                     child: Text(
                       widget.title.toString(),
                       style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 7, 0, 0),
                           fontWeight: FontWeight.bold),
                       maxLines: 2,

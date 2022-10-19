@@ -1,9 +1,9 @@
-import 'package:amazon_clone/common/widgets/loader.dart';
-import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/features/account/services/account_services.dart';
-import 'package:amazon_clone/features/account/widgets/single_product.dart';
-import 'package:amazon_clone/features/order_details/screens/order_details_screen.dart';
-import 'package:amazon_clone/models/order.dart';
+import 'package:smiley_app/common/widgets/loader.dart';
+import 'package:smiley_app/constants/global_variables.dart';
+import 'package:smiley_app/features/account/services/account_services.dart';
+import 'package:smiley_app/features/account/widgets/single_product.dart';
+import 'package:smiley_app/features/order_details/screens/order_details_screen.dart';
+import 'package:smiley_app/models/order.dart';
 import 'package:flutter/material.dart';
 
 class Orders extends StatefulWidget {

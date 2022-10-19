@@ -1,24 +1,24 @@
 import 'package:smiley_app/common/widgets/loader.dart';
 
 import 'package:smiley_app/features/account/services/account_services.dart';
-import 'package:smiley_app/models/task_done.dart';
 
 // import 'package:amazon_clone/features/order_details/screens/order_details_screen.dart';
 
 import 'package:flutter/material.dart';
 
-import 'single_task_done.dart';
+import '../../../models/transaction.dart';
+import 'single_positive_transaction.dart';
 
-class TasksDone extends StatefulWidget {
-  const TasksDone({Key? key}) : super(key: key);
+class TransactionPositive extends StatefulWidget {
+  const TransactionPositive({Key? key}) : super(key: key);
 
   @override
-  State<TasksDone> createState() => _TasksDoneState();
+  State<TransactionPositive> createState() => _TransactionPositiveState();
 }
 
-class _TasksDoneState extends State<TasksDone> {
+class _TransactionPositiveState extends State<TransactionPositive> {
   // temporary list
-  List<TaskDone>? tasks;
+  List<Transaction>? transaction;
 
   final AccountServices accountServices = AccountServices();
 
@@ -29,13 +29,14 @@ class _TasksDoneState extends State<TasksDone> {
   }
 
   void fetchWallet() async {
-    tasks = await accountServices.fetchMyDoneTask(context: context);
+    transaction =
+        await accountServices.fetchMyWalletTransaction(context: context);
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return tasks == null
+    return transaction == null
         ? const Loader()
         : Column(
             children: [
@@ -71,7 +72,7 @@ class _TasksDoneState extends State<TasksDone> {
                 padding: const EdgeInsets.only(left: 10, top: 20, right: 0),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: tasks!.length,
+                  itemCount: transaction!.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
@@ -81,8 +82,8 @@ class _TasksDoneState extends State<TasksDone> {
                         //   arguments: wallet![index],
                         // );
                       },
-                      child: SingleTaskDone(
-                        task: tasks![index],
+                      child: SinglePositiveTransaction(
+                        transaction: transaction![index],
                       ),
                     );
                   },

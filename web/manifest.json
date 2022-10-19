@@ -1,6 +1,6 @@
 {
-    "name": "amazon_clone",
-    "short_name": "amazon_clone",
+    "name": "smiley_app",
+    "short_name": "smiley_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

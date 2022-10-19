@@ -1,7 +1,7 @@
-import 'package:amazon_clone/common/widgets/custom_button.dart';
-import 'package:amazon_clone/common/widgets/custom_textField.dart';
-import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/features/auth/services/auth_service.dart';
+import 'package:smiley_app/common/widgets/custom_button.dart';
+import 'package:smiley_app/common/widgets/custom_textField.dart';
+import 'package:smiley_app/constants/global_variables.dart';
+import 'package:smiley_app/features/auth/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 enum Auth {

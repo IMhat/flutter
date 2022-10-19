@@ -1,72 +1,34 @@
 import 'dart:convert';
 
-class BuyProduct {
-  late dynamic amount;
-  late dynamic purpose;
-  late dynamic reference;
-  late dynamic balanceBefore;
-  late dynamic balanceAfter;
-  late dynamic summary;
-  late dynamic trnxSummary;
-  late dynamic createdAt;
-  late dynamic updatedAt;
-  late dynamic _id;
+class buyProduct {
+  final String fromUsername;
+  final double amount;
+  final String summary;
 
-  BuyProduct(
-    this.amount,
-    this.purpose,
-    this.reference,
-    this.balanceBefore,
-    this.balanceAfter,
-    this.summary,
-    this.trnxSummary,
-    this.createdAt,
-    this.updatedAt,
-    this._id,
-  );
+  buyProduct({
+    required this.fromUsername,
+    required this.amount,
+    required this.summary,
+  });
 
-  factory BuyProduct.fromJson(String str) =>
-      BuyProduct.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
-  BuyProduct.fromMap(Map<String, dynamic> map) {
-    amount = map['amount'];
-    purpose = map['purpose'];
-    reference = map['reference'];
-    balanceBefore = map['balanceBefore'];
-    balanceAfter = map['balanceAfter'];
-    summary = map['summary'];
-    trnxSummary = map['trnxSummary'];
-    createdAt = map['createdAt'];
-    updatedAt = map['updatedAt'];
-    _id = map['_id'];
+  Map<String, dynamic> toMap() {
+    return {
+      'fromUsername': fromUsername,
+      'amount': amount,
+      'summary': summary,
+    };
   }
 
-  Map<String, dynamic> toMap() => {
-        "amount": amount,
-        "purpose": purpose,
-        "reference": reference,
-        "balanceBefore": balanceBefore,
-        "balanceAfter": balanceAfter,
-        "summary": summary,
-        "trnxSummary": trnxSummary,
-        "createdAt": createdAt,
-        "updatedAt": updatedAt,
-        "_id": _id,
-      };
+  factory buyProduct.fromMap(Map<String, dynamic> map) {
+    return buyProduct(
+      fromUsername: map['fromUsername'] ?? '',
+      amount: map['amount']?.toDouble() ?? 0.0,
+      summary: map['summary'] ?? '',
+    );
+  }
 
-  BuyProduct copy() => BuyProduct(
-        amount,
-        purpose,
-        reference,
-        balanceBefore,
-        balanceAfter,
-        summary,
-        trnxSummary,
-        updatedAt,
-        createdAt,
-        _id,
-      );
+  String toJson() => json.encode(toMap());
 
-  then(Null Function(dynamic value) param0) {}
+  factory buyProduct.fromJson(String source) =>
+      buyProduct.fromMap(json.decode(source));
 }

@@ -1,13 +1,9 @@
-// import 'package:app_uteam/models/models.dart';
-
+import 'package:smiley_app/models/transaction.dart';
 import 'package:flutter/material.dart';
 
-import '../../../models/transaction.dart';
-
-class ExchangeProductTransactionCard extends StatelessWidget {
+class SinglePositiveTransaction extends StatelessWidget {
   final Transaction transaction;
-
-  const ExchangeProductTransactionCard({Key? key, required this.transaction})
+  const SinglePositiveTransaction({Key? key, required this.transaction})
       : super(key: key);
 
   @override
@@ -17,7 +13,7 @@ class ExchangeProductTransactionCard extends StatelessWidget {
       child: Stack(
         alignment: Alignment.bottomLeft,
         children: [
-          _UserDetails(
+          _TransactionDetails(
             //title: taskListProvider.tasks[i].title,
             // subTitle: taskListProvider.tasks[i].description,
             name: transaction.trnxSummary,
@@ -28,34 +24,26 @@ class ExchangeProductTransactionCard extends StatelessWidget {
       ),
     );
   }
-
-  // BoxDecoration _cardBorders() => BoxDecoration(
-  //         color: Colors.white,
-  //         borderRadius: BorderRadius.circular(25),
-  //         boxShadow: [
-  //           BoxShadow(
-  //               color: Colors.black12, offset: Offset(0, 7), blurRadius: 10)
-  //         ]);
 }
 
-class _UserDetails extends StatefulWidget {
+class _TransactionDetails extends StatefulWidget {
   final dynamic name;
   final dynamic points;
   final dynamic summary;
 
-  const _UserDetails({this.name, this.points, this.summary});
+  const _TransactionDetails({this.name, this.points, this.summary});
 
   @override
-  State<_UserDetails> createState() => _UserDetailsState();
+  State<_TransactionDetails> createState() => _TransactionDetailsState();
 }
 
-class _UserDetailsState extends State<_UserDetails> {
+class _TransactionDetailsState extends State<_TransactionDetails> {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        width: 340,
+        width: 330,
         height: 140,
         decoration: BoxDecoration(
             color: Colors.white,
@@ -83,9 +71,9 @@ class _UserDetailsState extends State<_UserDetails> {
                     )
                   ]),
               child: const Icon(
-                Icons.credit_card,
+                Icons.message_rounded,
                 size: 35,
-                color: Colors.red,
+                color: Colors.green,
               ),
             ),
             const SizedBox(width: 40),
@@ -104,7 +92,7 @@ class _UserDetailsState extends State<_UserDetails> {
                 ),
                 Row(
                   children: [
-                    const Text("Gastaste"),
+                    const Text("Obtuviste"),
                     const SizedBox(width: 5),
                     Text(
                       widget.points.toString(),

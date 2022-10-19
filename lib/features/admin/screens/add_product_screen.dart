@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:amazon_clone/constants/utils.dart';
+import 'package:smiley_app/constants/utils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
