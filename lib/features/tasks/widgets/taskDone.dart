@@ -1,8 +1,7 @@
-import 'package:amazon_clone/common/widgets/loader.dart';
+import 'package:smiley_app/common/widgets/loader.dart';
 
-import 'package:amazon_clone/features/account/services/account_services.dart';
-import 'package:amazon_clone/models/task_done.dart';
-import 'package:amazon_clone/models/tasks.dart';
+import 'package:smiley_app/features/account/services/account_services.dart';
+import 'package:smiley_app/models/task_done.dart';
 
 // import 'package:amazon_clone/features/order_details/screens/order_details_screen.dart';
 

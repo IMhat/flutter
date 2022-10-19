@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:amazon_clone/constants/utils.dart';
-import 'package:amazon_clone/features/admin/model/sales.dart';
-import 'package:amazon_clone/models/order.dart';
-import 'package:amazon_clone/providers/user_provider.dart';
+import 'package:smiley_app/constants/utils.dart';
+import 'package:smiley_app/features/admin/model/sales.dart';
+import 'package:smiley_app/models/order.dart';
+import 'package:smiley_app/providers/user_provider.dart';
 import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';

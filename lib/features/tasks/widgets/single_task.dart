@@ -1,4 +1,4 @@
-import 'package:amazon_clone/models/tasks.dart';
+import 'package:smiley_app/models/tasks.dart';
 import 'package:flutter/material.dart';
 
 class SingleTask extends StatelessWidget {
@@ -53,7 +53,7 @@ class _TaskDetailsState extends State<_TaskDetails> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      width: 320,
+      width: 400,
       height: 125,
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 237, 236, 237),

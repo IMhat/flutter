@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:amazon_clone/common/widgets/bottom_bar.dart';
-import 'package:amazon_clone/constants/error_handling.dart';
-import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/constants/utils.dart';
-import 'package:amazon_clone/features/admin/screens/add_product_screen.dart';
-import 'package:amazon_clone/features/admin/screens/admin_screen.dart';
-import 'package:amazon_clone/models/user.dart';
+import 'package:smiley_app/common/widgets/bottom_bar.dart';
+import 'package:smiley_app/constants/error_handling.dart';
+import 'package:smiley_app/constants/global_variables.dart';
+import 'package:smiley_app/constants/utils.dart';
+import 'package:smiley_app/features/admin/screens/add_product_screen.dart';
+import 'package:smiley_app/features/admin/screens/admin_screen.dart';
+import 'package:smiley_app/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';

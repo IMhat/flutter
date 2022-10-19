@@ -1,5 +1,5 @@
-import 'package:amazon_clone/features/account/services/account_services.dart';
-import 'package:amazon_clone/features/account/widgets/account_button.dart';
+import 'package:smiley_app/features/account/services/account_services.dart';
+import 'package:smiley_app/features/account/widgets/account_button.dart';
 import 'package:flutter/material.dart';
 
 class TopButtons extends StatelessWidget {

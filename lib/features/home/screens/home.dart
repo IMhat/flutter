@@ -1,4 +1,4 @@
-import 'package:amazon_clone/features/home/widgets/wallet.dart';
+import 'package:smiley_app/features/home/widgets/wallet.dart';
 // import 'package:amazon_clone/features/home/services/wallet_services.dart';
 // import 'package:amazon_clone/features/home/widgets/wallet_home_card.dart';
 // import 'package:amazon_clone/features/wallet/widgets/wallet_card.dart';

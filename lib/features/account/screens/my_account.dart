@@ -1,4 +1,4 @@
-import 'package:amazon_clone/features/account/widgets/button_my_orders.dart';
+import 'package:smiley_app/features/account/widgets/button_my_orders.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';

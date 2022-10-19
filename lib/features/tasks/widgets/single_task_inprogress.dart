@@ -1,4 +1,4 @@
-import 'package:amazon_clone/models/task_inprogress.dart';
+import 'package:smiley_app/models/task_inprogress.dart';
 import 'package:flutter/material.dart';
 
 class SingleTaskInprogress extends StatelessWidget {

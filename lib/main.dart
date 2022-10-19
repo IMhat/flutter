@@ -1,14 +1,11 @@
-import 'package:amazon_clone/common/widgets/bottom_bar.dart';
-import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/features/admin/screens/admin_screen.dart';
-import 'package:amazon_clone/features/auth/screens/initial_screen.dart';
-import 'package:amazon_clone/features/auth/services/auth_service.dart';
-
-import 'package:amazon_clone/features/wallet/services/productTransaction_service.dart';
-import 'package:amazon_clone/features/wallet/services/transaction_services.dart';
-import 'package:amazon_clone/providers/user_provider.dart';
-import 'package:amazon_clone/router.dart';
-import 'package:amazon_clone/router/app_routes.dart';
+import 'package:smiley_app/common/widgets/bottom_bar.dart';
+import 'package:smiley_app/constants/global_variables.dart';
+import 'package:smiley_app/features/admin/screens/admin_screen.dart';
+import 'package:smiley_app/features/auth/screens/initial_screen.dart';
+import 'package:smiley_app/features/auth/services/auth_service.dart';
+import 'package:smiley_app/providers/user_provider.dart';
+import 'package:smiley_app/router.dart';
+import 'package:smiley_app/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,8 +14,6 @@ void main() {
     ChangeNotifierProvider(
       create: (context) => UserProvider(),
     ),
-    ChangeNotifierProvider(create: (_) => TransactionService()),
-    ChangeNotifierProvider(create: (_) => ProductTransactionService()),
   ], child: const MyApp()));
 }
 

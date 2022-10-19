@@ -1,7 +1,7 @@
-import 'package:amazon_clone/features/account/screens/account_screen.dart';
-import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
-import 'package:amazon_clone/features/home/screens/catalogo_screen.dart';
-import 'package:amazon_clone/features/home/screens/home1.dart';
+import 'package:smiley_app/features/account/screens/account_screen.dart';
+import 'package:smiley_app/features/auth/screens/auth_screen.dart';
+import 'package:smiley_app/features/home/screens/catalogo_screen.dart';
+import 'package:smiley_app/features/home/screens/home1.dart';
 import 'package:flutter/material.dart';
 
 import '../features/home/screens/home.dart';

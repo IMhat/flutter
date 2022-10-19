@@ -1,3 +1,5 @@
+import 'package:smiley_app/features/wallet/widgets/transaction.dart';
+import 'package:smiley_app/features/wallet/widgets/transaction_negative.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/wallet.dart';
@@ -9,25 +11,25 @@ class WalletScreen extends StatefulWidget {
   State<WalletScreen> createState() => _WalletScreenState();
 }
 
-class _WalletScreenState extends State<WalletScreen> {
+class _WalletScreenState extends State<WalletScreen>
+    with SingleTickerProviderStateMixin {
   @override
+  int selectedPage = 0;
+  TabController? controller;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller =
+        TabController(length: 2, initialIndex: selectedPage, vsync: this);
+  }
 
-  // int selectedPage = 0;
-  // TabController? controller;
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   controller =
-  //       TabController(length: 2, initialIndex: selectedPage, vsync: this);
-  // }
-
-  // @override
-  // void dispose() {
-  //   // TODO: implement dispose
-  //   super.dispose();
-  //   controller!.dispose();
-  // }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    controller!.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,96 +63,76 @@ class _WalletScreenState extends State<WalletScreen> {
                 Wallets(),
               ],
             ),
-            //Center(
-
-            // child: ListView.builder(
-            //   shrinkWrap: true,
-            //   physics: const NeverScrollableScrollPhysics(),
-            //   scrollDirection: Axis.vertical,
-            //   //itemCount: taskListProvider.tasks.length,
-            //   itemCount: widget.walletService.wallet.length,
-            //   itemBuilder: (BuildContext context, int index) =>
-            //       GestureDetector(
-            //     onTap: () {
-            //       widget.walletService.selectedWallet =
-            //           widget.walletService.wallet[index].copy();
-            //       // Navigator.pushNamed(
-            //       //   context,
-            //       //   'pointPut',
-            //       // );
-            //     },
-            //     child: WalletCard(
-            //       wallet: widget.walletService.wallet[index],
-            //     ),
-            //   ),
-            // ),
           ),
-
-          // Container(
-          //   decoration: const BoxDecoration(
-          //       border: Border(
-          //           bottom: BorderSide(width: 1, color: Colors.deepPurple))),
-          //   child: Material(
-          //     color: Colors.white,
-          //     child: TabBar(
-          //       controller: controller,
-          //       labelColor: Colors.white,
-          //       unselectedLabelColor: Colors.black,
-          //       tabs: [
-          //         Tab(
-          //           child: Container(
-          //             padding: EdgeInsets.only(top: 8, left: 30),
-          //             width: 150,
-          //             height: 40,
-          //             decoration: BoxDecoration(
-          //                 color: Colors.green,
-          //                 borderRadius:
-          //                     const BorderRadius.all(Radius.circular(20)),
-          //                 boxShadow: [
-          //                   BoxShadow(
-          //                     color: Colors.grey[850]!.withOpacity(0.29),
-          //                     offset: const Offset(-10, 10),
-          //                     blurRadius: 10,
-          //                   )
-          //                 ]),
-          //             child: Text("Mis ingresos"),
-          //           ),
-          //         ),
-          //         Tab(
-          //           child: Container(
-          //             padding: EdgeInsets.only(top: 8, left: 40),
-          //             width: 150,
-          //             height: 40,
-          //             decoration: BoxDecoration(
-          //                 color: Colors.red,
-          //                 borderRadius:
-          //                     const BorderRadius.all(Radius.circular(20)),
-          //                 boxShadow: [
-          //                   BoxShadow(
-          //                     color: Colors.grey[850]!.withOpacity(0.29),
-          //                     offset: const Offset(-10, 10),
-          //                     blurRadius: 10,
-          //                   )
-          //                 ]),
-          //             child: Text("Mis Gastos"),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
-          // Expanded(
-          //     child: TabBarView(
-          //   controller: controller,
-          //   children: [
-          //     Container(
-          //         margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
-          //         child: TransactionScreen()),
-          //     Container(
-          //         margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
-          //         child: ExchangeTransactionScreen()),
-          //   ],
-          // ))
+          Container(
+            decoration: const BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(width: 1, color: Colors.deepPurple))),
+            child: Material(
+              color: Colors.white,
+              child: TabBar(
+                controller: controller,
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.black,
+                tabs: [
+                  Tab(
+                    child: Container(
+                      padding: EdgeInsets.only(top: 8, left: 30),
+                      width: 150,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey[850]!.withOpacity(0.29),
+                              offset: const Offset(-10, 10),
+                              blurRadius: 10,
+                            )
+                          ]),
+                      child: Text("Mis ingresos"),
+                    ),
+                  ),
+                  Tab(
+                    child: Container(
+                      padding: EdgeInsets.only(top: 8, left: 40),
+                      width: 150,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey[850]!.withOpacity(0.29),
+                              offset: const Offset(-10, 10),
+                              blurRadius: 10,
+                            )
+                          ]),
+                      child: Text("Mis Gastos"),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+              child: TabBarView(
+            controller: controller,
+            children: [
+              Container(
+                  margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
+                  child: Column(
+                    children: [TransactionPositive()],
+                  )),
+              Container(
+                  margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
+                  child: Column(
+                    children: [TransactionNegative()],
+                  )),
+            ],
+          ))
         ],
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:amazon_clone/models/wallet.dart';
+import 'package:smiley_app/models/wallet.dart';
 import 'package:flutter/material.dart';
 
 class SingleWallet extends StatelessWidget {
@@ -80,7 +80,7 @@ class _WalletDetailsState extends State<_WalletDetails> {
                 widget.name.toString(),
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 25,
+                    fontSize: 10,
                     color: Colors.white),
               ),
             ),

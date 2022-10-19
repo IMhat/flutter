@@ -1,5 +1,5 @@
-import 'package:amazon_clone/common/widgets/stars.dart';
-import 'package:amazon_clone/models/product.dart';
+import 'package:smiley_app/common/widgets/stars.dart';
+import 'package:smiley_app/models/product.dart';
 import 'package:flutter/material.dart';
 
 class SearchedProduct extends StatelessWidget {

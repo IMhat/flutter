@@ -1,4 +1,4 @@
-import 'package:amazon_clone/models/wallet.dart';
+import 'package:smiley_app/models/wallet.dart';
 import 'package:flutter/material.dart';
 
 class WalletHome extends StatelessWidget {

@@ -1,12 +1,12 @@
-import 'package:amazon_clone/common/widgets/loader.dart';
+import 'package:smiley_app/common/widgets/loader.dart';
 
-import 'package:amazon_clone/features/account/services/account_services.dart';
+import 'package:smiley_app/features/account/services/account_services.dart';
 
-import 'package:amazon_clone/features/wallet/widgets/single_wallet.dart';
-import 'package:amazon_clone/features/home/widgets/walletHome.dart';
+import 'package:smiley_app/features/wallet/widgets/single_wallet.dart';
+import 'package:smiley_app/features/home/widgets/walletHome.dart';
 // import 'package:amazon_clone/features/order_details/screens/order_details_screen.dart';
 
-import 'package:amazon_clone/models/wallet.dart';
+import 'package:smiley_app/models/wallet.dart';
 import 'package:flutter/material.dart';
 
 class Walletss extends StatefulWidget {

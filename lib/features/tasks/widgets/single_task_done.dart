@@ -1,4 +1,4 @@
-import 'package:amazon_clone/models/task_done.dart';
+import 'package:smiley_app/models/task_done.dart';
 import 'package:flutter/material.dart';
 
 class SingleTaskDone extends StatelessWidget {

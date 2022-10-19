@@ -1,9 +1,9 @@
-import 'package:amazon_clone/common/widgets/custom_button.dart';
-import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/features/admin/services/admin_services.dart';
-import 'package:amazon_clone/features/search/screens/search_screen.dart';
-import 'package:amazon_clone/models/order.dart';
-import 'package:amazon_clone/providers/user_provider.dart';
+import 'package:smiley_app/common/widgets/custom_button.dart';
+import 'package:smiley_app/constants/global_variables.dart';
+import 'package:smiley_app/features/admin/services/admin_services.dart';
+import 'package:smiley_app/features/search/screens/search_screen.dart';
+import 'package:smiley_app/models/order.dart';
+import 'package:smiley_app/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
