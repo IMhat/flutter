@@ -13,6 +13,7 @@ class TransactionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 350,
       height: 150,
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -55,7 +56,7 @@ class _UserDetailsState extends State<_UserDetails> {
     return Center(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        width: 330,
+        width: 350,
         height: 140,
         decoration: BoxDecoration(
             color: Colors.white,
@@ -70,7 +71,7 @@ class _UserDetailsState extends State<_UserDetails> {
         child: Row(
           children: [
             Container(
-              width: 50,
+              width: 350,
               height: 50,
               decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 200, 198, 198),

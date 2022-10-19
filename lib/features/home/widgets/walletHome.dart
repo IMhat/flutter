@@ -37,17 +37,16 @@ class _WalletDetailsState extends State<_WalletDetails> {
               "Hello,",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 35,
+                  fontSize: 25,
                   color: Colors.white),
             ),
             SizedBox(
-              width: 180,
-              height: 40,
+              width: 250,
               child: Text(
                 widget.name.toString(),
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 30,
+                    fontSize: 25,
                     color: Colors.white),
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
@@ -56,7 +55,7 @@ class _WalletDetailsState extends State<_WalletDetails> {
           ],
         ),
         Container(
-          margin: const EdgeInsets.only(left: 20),
+          margin: const EdgeInsets.only(right: 100),
           child: Row(
             children: [
               const Text(

@@ -8,31 +8,18 @@ class SingleWallet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black12,
-            width: 1.5,
+      width: 250,
+      padding: const EdgeInsets.all(10),
+      child: Stack(
+        alignment: Alignment.bottomLeft,
+        children: [
+          _WalletDetails(
+            //title: taskListProvider.tasks[i].title,
+            // subTitle: taskListProvider.tasks[i].description,
+            name: wallet.username,
+            points: wallet.balance,
           ),
-          borderRadius: BorderRadius.circular(5),
-          color: Colors.white,
-        ),
-        child: Container(
-          width: 180,
-          padding: const EdgeInsets.all(10),
-          child: Stack(
-            alignment: Alignment.bottomLeft,
-            children: [
-              _WalletDetails(
-                //title: taskListProvider.tasks[i].title,
-                // subTitle: taskListProvider.tasks[i].description,
-                name: wallet.username,
-                points: wallet.balance,
-              ),
-            ],
-          ),
-        ),
+        ],
       ),
     );
   }
@@ -63,8 +50,8 @@ class _WalletDetailsState extends State<_WalletDetails> {
       padding: const EdgeInsets.only(right: 50),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        width: 300,
-        height: 200,
+        width: 350,
+        height: 100,
         decoration: const BoxDecoration(
           color: Color(0xffCFBDF8),
           borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -76,13 +63,22 @@ class _WalletDetailsState extends State<_WalletDetails> {
               shaderCallback: (Rect rect) {
                 return _gradient.createShader(rect);
               },
-              child: Text(
-                widget.name.toString(),
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                    color: Colors.white),
+              child: SizedBox(
+                width: 130,
+                child: Text(
+                  widget.name.toString(),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 10,
+                      color: Colors.white),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
               ),
+            ),
+            SizedBox(
+              height: 5,
             ),
             ShaderMask(
               shaderCallback: (Rect rect) {

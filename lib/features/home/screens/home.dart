@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                       //       color: Colors.white),
                       // ),
                       Container(
-                        margin: const EdgeInsets.only(top: 50, right: 25),
+                        margin: const EdgeInsets.only(top: 90, right: 25),
                         width: 280,
                         height: 100,
                         // child: ListView.builder(

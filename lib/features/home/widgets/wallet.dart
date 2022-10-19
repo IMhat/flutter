@@ -66,9 +66,9 @@ class _WalletsState extends State<Walletss> {
 
               // DISPLAY ORDERS
               Container(
-                height: 150,
-                width: 200,
-                padding: const EdgeInsets.only(left: 10, top: 20, right: 0),
+                height: 80,
+                width: 280,
+                padding: const EdgeInsets.only(top: 20, right: 20),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: wallet!.length,

@@ -9,8 +9,12 @@ import 'package:smiley_app/features/search/screens/search_screen.dart';
 import 'package:smiley_app/models/order.dart';
 import 'package:smiley_app/models/product.dart';
 import 'package:flutter/material.dart';
+import 'package:smiley_app/models/task_inprogress.dart';
+import 'package:smiley_app/models/tasks.dart';
 
 import 'features/home/screens/catalogo_screen.dart';
+import 'features/tasks/screens/task_detail_screen.dart';
+import 'features/tasks/screens/task_inprogress_detail_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -57,6 +61,18 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => ProductDetailsScreen(
           product: product,
         ),
+      );
+    case TaskDetailsScreen.routeName:
+      var task = routeSettings.arguments as Task;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => TaskDetailsScreen(task: task),
+      );
+    case TaskInprogressDetailsScreen.routeName:
+      var task = routeSettings.arguments as TaskInprogress;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => TaskInprogressDetailsScreen(task: task),
       );
     case AddressScreen.routeName:
       var totalAmount = routeSettings.arguments as String;

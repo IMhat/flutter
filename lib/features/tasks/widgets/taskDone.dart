@@ -67,7 +67,7 @@ class _TasksDoneState extends State<TasksDone> {
               // DISPLAY ORDERS
               Container(
                 height: 150,
-                width: 200,
+                width: 350,
                 padding: const EdgeInsets.only(left: 10, top: 20, right: 0),
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,

@@ -8,20 +8,17 @@ class SingleNegativeTransaction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      child: Stack(
-        alignment: Alignment.bottomLeft,
-        children: [
-          _UserDetails(
-            //title: taskListProvider.tasks[i].title,
-            // subTitle: taskListProvider.tasks[i].description,
-            name: transaction.trnxSummary,
-            points: transaction.amount,
-            summary: transaction.summary,
-          ),
-        ],
-      ),
+    return Stack(
+      alignment: Alignment.bottomLeft,
+      children: [
+        _UserDetails(
+          //title: taskListProvider.tasks[i].title,
+          // subTitle: taskListProvider.tasks[i].description,
+          name: transaction.trnxSummary,
+          points: transaction.amount,
+          summary: transaction.summary,
+        ),
+      ],
     );
   }
 }
@@ -43,8 +40,8 @@ class _UserDetailsState extends State<_UserDetails> {
     return Center(
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        width: 340,
-        height: 140,
+        width: 330,
+        height: 120,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(20)),

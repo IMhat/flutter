@@ -72,23 +72,23 @@ class _TaskDetailsState extends State<_TaskDetails> {
             children: [
               Row(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.only(top: 5),
-                    width: 10,
-                    height: 10,
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(166, 239, 41, 27),
-                        border: Border.all(
-                            color: const Color.fromARGB(255, 255, 251, 251)),
-                        borderRadius: BorderRadius.circular(50)),
-                  ),
+                  // Container(
+                  //   padding: const EdgeInsets.only(top: 5),
+                  //   width: 10,
+                  //   height: 10,
+                  //   decoration: BoxDecoration(
+                  //       color: const Color.fromARGB(166, 239, 41, 27),
+                  //       border: Border.all(
+                  //           color: const Color.fromARGB(255, 255, 251, 251)),
+                  //       borderRadius: BorderRadius.circular(50)),
+                  // ),
                   SizedBox(
                     width: 150,
                     height: 45,
                     child: Text(
                       widget.title.toString(),
                       style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 7, 0, 0),
                           fontWeight: FontWeight.bold),
                       maxLines: 2,

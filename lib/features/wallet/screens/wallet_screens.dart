@@ -55,11 +55,11 @@ class _WalletScreenState extends State<WalletScreen>
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 5, bottom: 0, left: 50),
-            width: 500,
+            margin: const EdgeInsets.only(bottom: 0, right: 10),
+            width: 350,
             color: Colors.white,
             child: Column(
-              children: [
+              children: const [
                 Wallets(),
               ],
             ),
@@ -77,11 +77,11 @@ class _WalletScreenState extends State<WalletScreen>
                 tabs: [
                   Tab(
                     child: Container(
-                      padding: EdgeInsets.only(top: 8, left: 30),
+                      padding: const EdgeInsets.only(top: 8, left: 30),
                       width: 150,
                       height: 40,
                       decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: const Color.fromARGB(255, 103, 190, 105),
                           borderRadius:
                               const BorderRadius.all(Radius.circular(20)),
                           boxShadow: [
@@ -91,16 +91,16 @@ class _WalletScreenState extends State<WalletScreen>
                               blurRadius: 10,
                             )
                           ]),
-                      child: Text("Mis ingresos"),
+                      child: const Text("Mis ingresos"),
                     ),
                   ),
                   Tab(
                     child: Container(
-                      padding: EdgeInsets.only(top: 8, left: 40),
+                      padding: const EdgeInsets.only(top: 8, left: 40),
                       width: 150,
                       height: 40,
                       decoration: BoxDecoration(
-                          color: Colors.red,
+                          color: const Color.fromARGB(255, 240, 125, 117),
                           borderRadius:
                               const BorderRadius.all(Radius.circular(20)),
                           boxShadow: [
@@ -110,7 +110,7 @@ class _WalletScreenState extends State<WalletScreen>
                               blurRadius: 10,
                             )
                           ]),
-                      child: Text("Mis Gastos"),
+                      child: const Text("Mis Gastos"),
                     ),
                   ),
                 ],
@@ -122,14 +122,14 @@ class _WalletScreenState extends State<WalletScreen>
             controller: controller,
             children: [
               Container(
-                  margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
+                  margin: const EdgeInsets.only(top: 5, bottom: 20),
                   child: Column(
-                    children: [TransactionPositive()],
+                    children: const [TransactionPositive()],
                   )),
               Container(
-                  margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
+                  margin: const EdgeInsets.only(top: 5, bottom: 20),
                   child: Column(
-                    children: [TransactionNegative()],
+                    children: const [TransactionNegative()],
                   )),
             ],
           ))

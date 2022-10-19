@@ -7,6 +7,7 @@ import 'package:smiley_app/models/tasks.dart';
 
 import 'package:flutter/material.dart';
 
+import '../screens/task_detail_screen.dart';
 import 'single_task.dart';
 
 class Tasks extends StatefulWidget {
@@ -76,10 +77,11 @@ class _TasksState extends State<Tasks> {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
-                          // Navigator.pushNamed(
-                          //   context,
-                          //   'AceptTasks',
-                          // );
+                          Navigator.pushNamed(
+                            context,
+                            TaskDetailsScreen.routeName,
+                            arguments: tasks![index],
+                          );
                         },
                         child: SingleTask(
                           task: tasks![index],

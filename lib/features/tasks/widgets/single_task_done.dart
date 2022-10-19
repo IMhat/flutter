@@ -10,7 +10,7 @@ class SingleTaskDone extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(2.0),
       margin: const EdgeInsets.only(top: 0, bottom: 0),
-      width: 200, height: 130,
+
       //decoration: _cardBorders(),
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -72,23 +72,23 @@ class _TaskDetailsState extends State<_TaskDetails> {
             children: [
               Row(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.only(top: 5),
-                    width: 10,
-                    height: 10,
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 124, 199, 127),
-                        border: Border.all(
-                            color: const Color.fromARGB(255, 255, 251, 251)),
-                        borderRadius: BorderRadius.circular(50)),
-                  ),
+                  // Container(
+                  //   padding: const EdgeInsets.only(top: 5),
+                  //   width: 10,
+                  //   height: 10,
+                  //   decoration: BoxDecoration(
+                  //       color: const Color.fromARGB(255, 124, 199, 127),
+                  //       border: Border.all(
+                  //           color: const Color.fromARGB(255, 255, 251, 251)),
+                  //       borderRadius: BorderRadius.circular(50)),
+                  // ),
                   SizedBox(
                     width: 150,
                     height: 45,
                     child: Text(
                       widget.title.toString(),
                       style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 7, 0, 0),
                           fontWeight: FontWeight.bold),
                       maxLines: 2,
