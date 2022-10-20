@@ -7,6 +7,7 @@ import 'package:smiley_app/features/home/widgets/wallet.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/tasks.dart';
+import '../../tasks/widgets/taskHome.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,14 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Task>? tasks;
-
-  final AccountServices accountServices = AccountServices();
-  void fetchWallet() async {
-    tasks = await accountServices.fetchMyBacklogTask(context: context);
-    setState(() {});
-  }
-
   // @override
   @override
   Widget build(BuildContext context) {
@@ -151,13 +144,14 @@ class _HomePageState extends State<HomePage> {
                                 color: Color.fromARGB(255, 0, 0, 0)),
                           ),
                           SizedBox(height: 10),
-                          Text(
-                            "2/10 Desafios",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 0, 0, 0)),
-                          ),
+                          // Text(
+                          //   "2/10 Desafios",
+                          //   style: TextStyle(
+                          //       fontSize: 20,
+                          //       fontWeight: FontWeight.bold,
+                          //       color: Color.fromARGB(255, 0, 0, 0)),
+                          // ),
+                          TasksCounter()
                         ],
                       ),
                       Container(

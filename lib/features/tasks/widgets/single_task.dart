@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class SingleTask extends StatelessWidget {
   final Task task;
+
   const SingleTask({Key? key, required this.task}) : super(key: key);
 
   @override
@@ -20,6 +21,7 @@ class SingleTask extends StatelessWidget {
             // subTitle: taskListProvider.tasks[i].description,
             title: task.title,
             type: task.status,
+
             //subTitle: widget.task.description,
           ),
         ],
