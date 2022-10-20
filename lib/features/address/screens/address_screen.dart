@@ -1,15 +1,19 @@
 import 'package:smiley_app/common/widgets/bottom_bar.dart';
 import 'package:smiley_app/common/widgets/custom_button.dart';
 import 'package:smiley_app/common/widgets/custom_textField.dart';
+import 'package:smiley_app/constants/error_handling.dart';
 import 'package:smiley_app/constants/global_variables.dart';
 import 'package:smiley_app/constants/utils.dart';
 import 'package:smiley_app/features/account/services/account_services.dart';
 import 'package:smiley_app/features/address/services/address_services.dart';
+import 'package:smiley_app/models/buyProduct.dart';
 
 import 'package:smiley_app/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:pay/pay.dart';
 import 'package:provider/provider.dart';
+
+import 'package:http/http.dart' as http;
 
 class AddressScreen extends StatefulWidget {
   static const String routeName = '/address';
@@ -61,32 +65,70 @@ class _AddressScreenState extends State<AddressScreen> {
     cityController.dispose();
   }
 
-  void exchangeProduct(user) {
-    if (widget.totalAmount.isNotEmpty) {
-      accountServices.exchange(
-        context: context,
-        fromUsername: user,
-        amount: double.parse(widget.totalAmount),
-        summary: 'Exchange',
+  void exchange3({
+    required BuildContext context,
+    required String fromUsername,
+    required double amount,
+    required String summary,
+  }) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+
+    try {
+      buyProduct transaction = buyProduct(
+        fromUsername: fromUsername,
+        amount: amount,
+        summary: summary,
       );
+
+      http.Response res = await http.post(
+        Uri.parse('$uri/api/transaction/buyProduct'),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'x-auth-token': userProvider.user.token,
+        },
+        body: transaction.toJson(),
+      );
+
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, 'Product Exchange Successfully!');
+          showSnackBar(context, 'Your order has been placed!');
+
+          //Navigator.pop(context);
+          var address = context.watch<UserProvider>().user.address;
+          onCashPaymentResult(address);
+        },
+      );
+    } catch (e) {
+      // showSnackBar(context, e.toString());
+      showSnackBar(context, "you don't have enough points!!");
     }
   }
-  // void exchangeProduct(user) {
 
-  //   try{
-  //       accountServices.exchange(
+  // void exchangeProduct(user) {
+  //   if (widget.totalAmount.isNotEmpty) {
+  //     accountServices.exchange(
   //       context: context,
   //       fromUsername: user,
   //       amount: double.parse(widget.totalAmount),
   //       summary: 'Exchange',
   //     );
-  //     onSuccess: () {
-
-  //      },
-
-  //   } catch(e){
-
   //   }
+  // }
+  void exchangeProduct(user) {
+    try {
+      exchange3(
+        context: context,
+        fromUsername: user,
+        amount: double.parse(widget.totalAmount),
+        summary: 'Exchange',
+      );
+    } catch (e) {
+      showSnackBar(context, "you don't have enough points!!");
+    }
+  }
 
   //   if (widget.totalAmount.isNotEmpty) {
   //     accountServices.exchange(
@@ -133,44 +175,20 @@ class _AddressScreenState extends State<AddressScreen> {
   }
 
   void onCashPaymentResult(address) {
-    try {
-      payPressed(address);
+    payPressed(address);
 
-      if (Provider.of<UserProvider>(context, listen: false)
-          .user
-          .address
-          .isEmpty) {
-        addressServices.saveUserAddress(
-            context: context, address: addressToBeUsed);
-      }
-      addressServices.placeOrder(
-        context: context,
-        address: addressToBeUsed,
-        totalSum: double.parse(widget.totalAmount),
-      );
-
-      // accountServices.exchange(
-      //   context: context,
-      //   fromUsername: user,
-      //   amount: double.parse(widget.totalAmount),
-      //   summary: 'Exchange',
-      // );
-    } catch (e) {}
-
-    // payPressed(address);
-
-    // if (Provider.of<UserProvider>(context, listen: false)
-    //     .user
-    //     .address
-    //     .isEmpty) {
-    //   addressServices.saveUserAddress(
-    //       context: context, address: addressToBeUsed);
-    // }
-    // addressServices.placeOrder(
-    //   context: context,
-    //   address: addressToBeUsed,
-    //   totalSum: double.parse(widget.totalAmount),
-    // );
+    if (Provider.of<UserProvider>(context, listen: false)
+        .user
+        .address
+        .isEmpty) {
+      addressServices.saveUserAddress(
+          context: context, address: addressToBeUsed);
+    }
+    addressServices.placeOrder(
+      context: context,
+      address: addressToBeUsed,
+      totalSum: double.parse(widget.totalAmount),
+    );
   }
 
   void payPressed(String addressFromProvider) {
@@ -305,7 +323,7 @@ class _AddressScreenState extends State<AddressScreen> {
                 onTap: () {
                   exchangeProduct(user);
 
-                  onCashPaymentResult(address);
+                  //onCashPaymentResult(address);
 
                   Navigator.pushNamed(context, BottomBar.routeName);
                 },
