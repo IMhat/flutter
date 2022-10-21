@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(100),
         child: AppBar(
           flexibleSpace: Container(
             decoration: const BoxDecoration(

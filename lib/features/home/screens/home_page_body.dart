@@ -414,43 +414,43 @@ class _HomePageBodyState extends State<HomePageBody> {
             ],
           ),
         ),
-        Container(
-          padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
-          margin: const EdgeInsets.only(top: 10, left: 15, right: 15),
-          width: 300,
-          height: 80,
-          decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 231, 170, 209),
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[850]!.withOpacity(0.29),
-                  offset: const Offset(-10, 10),
-                  blurRadius: 10,
-                )
-              ]),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                child: ShaderMask(
-                  shaderCallback: (Rect rect) {
-                    return _gradient.createShader(rect);
-                  },
-                  child: const Text(
-                    "Desafios",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                        color: Colors.white),
-                  ),
-                ),
-              ),
-              const MyButton()
-            ],
-          ),
-        )
+        // Container(
+        //   padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+        //   margin: const EdgeInsets.only(top: 10, left: 15, right: 15),
+        //   width: 300,
+        //   height: 80,
+        //   decoration: BoxDecoration(
+        //       color: const Color.fromARGB(255, 231, 170, 209),
+        //       borderRadius: const BorderRadius.all(Radius.circular(10)),
+        //       boxShadow: [
+        //         BoxShadow(
+        //           color: Colors.grey[850]!.withOpacity(0.29),
+        //           offset: const Offset(-10, 10),
+        //           blurRadius: 10,
+        //         )
+        //       ]),
+        //   child: Row(
+        //     crossAxisAlignment: CrossAxisAlignment.center,
+        //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //     children: [
+        //       Container(
+        //         child: ShaderMask(
+        //           shaderCallback: (Rect rect) {
+        //             return _gradient.createShader(rect);
+        //           },
+        //           child: const Text(
+        //             "Desafios",
+        //             style: TextStyle(
+        //                 fontWeight: FontWeight.bold,
+        //                 fontSize: 30,
+        //                 color: Colors.white),
+        //           ),
+        //         ),
+        //       ),
+        //       const MyButton()
+        //     ],
+        //   ),
+        // )
       ],
     );
   }
@@ -536,7 +536,7 @@ class MyButtonBeginning extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          'ManageTasks',
+          'tienda',
         );
       },
       // The custom button

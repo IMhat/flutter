@@ -70,6 +70,7 @@ class _WalletsState extends State<Walletss> {
                 width: 280,
                 padding: const EdgeInsets.only(top: 20, right: 20),
                 child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemCount: wallet!.length,
                   itemBuilder: (context, index) {

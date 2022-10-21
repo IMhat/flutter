@@ -9,7 +9,7 @@ class SingleNegativeTransaction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 125,
+      height: 105,
       child: Stack(
         alignment: Alignment.bottomLeft,
         children: [
@@ -44,7 +44,7 @@ class _UserDetailsState extends State<_UserDetails> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         width: 330,
-        height: 120,
+        height: 100,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(20)),
@@ -58,8 +58,8 @@ class _UserDetailsState extends State<_UserDetails> {
         child: Row(
           children: [
             Container(
-              width: 50,
-              height: 50,
+              width: 40,
+              height: 40,
               decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 200, 198, 198),
                   borderRadius: const BorderRadius.all(Radius.circular(8)),
@@ -72,7 +72,7 @@ class _UserDetailsState extends State<_UserDetails> {
                   ]),
               child: const Icon(
                 Icons.credit_card,
-                size: 35,
+                size: 30,
                 color: Colors.red,
               ),
             ),

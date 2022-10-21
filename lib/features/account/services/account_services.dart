@@ -59,6 +59,56 @@ class AccountServices {
     }
   }
 
+  //acept
+  void accept({
+    required BuildContext context,
+    required String status,
+    required String title,
+    required String priority,
+    required String category,
+    required String assignmentUser,
+    required String createdBy,
+    required String description,
+    required String id,
+    required int points,
+  }) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+
+    try {
+      Task task = Task(
+        title,
+        priority,
+        description,
+        points,
+        category,
+        assignmentUser,
+        status,
+        createdBy,
+        id,
+      );
+
+      http.Response res = await http.put(
+        Uri.parse('$uri/api/tasks/${task.id}'),
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+          'x-auth-token': userProvider.user.token,
+        },
+        body: task.toJson(),
+      );
+
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, 'Successfully!');
+          //Navigator.pop(context);
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
   Future<List<Order>> fetchMyOrders({
     required BuildContext context,
   }) async {

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../widgets/wallet.dart';
 
 class WalletScreen extends StatefulWidget {
-  WalletScreen({Key? key}) : super(key: key);
+  const WalletScreen({Key? key}) : super(key: key);
 
   @override
   State<WalletScreen> createState() => _WalletScreenState();
@@ -18,7 +18,6 @@ class _WalletScreenState extends State<WalletScreen>
   TabController? controller;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     controller =
         TabController(length: 2, initialIndex: selectedPage, vsync: this);
@@ -26,7 +25,6 @@ class _WalletScreenState extends State<WalletScreen>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     controller!.dispose();
   }
@@ -38,31 +36,21 @@ class _WalletScreenState extends State<WalletScreen>
     //final pointListProvider = Provider.of<PointListProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text(
+          "Mi Billetera",
+          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Text(
-                  "Mi Billetera",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-                )
-              ],
+            margin: const EdgeInsets.only(
+              bottom: 0,
             ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(bottom: 0, right: 10),
-            width: 350,
             color: Colors.white,
-            child: Column(
-              children: const [
-                Wallets(),
-              ],
-            ),
+            child: const Wallets(),
           ),
           Container(
             decoration: const BoxDecoration(
@@ -72,25 +60,25 @@ class _WalletScreenState extends State<WalletScreen>
               color: Colors.white,
               child: TabBar(
                 controller: controller,
-                labelColor: Colors.white,
+                labelColor: Colors.deepPurple,
                 unselectedLabelColor: Colors.black,
                 tabs: [
                   Tab(
                     child: Container(
-                      padding: const EdgeInsets.only(top: 8, left: 30),
+                      padding: const EdgeInsets.only(top: 10, left: 30),
                       width: 150,
                       height: 40,
-                      decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 103, 190, 105),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey[850]!.withOpacity(0.29),
-                              offset: const Offset(-10, 10),
-                              blurRadius: 10,
-                            )
-                          ]),
+                      // decoration: BoxDecoration(
+                      //     color: const Color.fromARGB(255, 103, 190, 105),
+                      //     borderRadius:
+                      //         const BorderRadius.all(Radius.circular(20)),
+                      //     boxShadow: [
+                      //       BoxShadow(
+                      //         color: Colors.grey[850]!.withOpacity(0.29),
+                      //         offset: const Offset(-10, 10),
+                      //         blurRadius: 10,
+                      //       )
+                      //     ]),
                       child: const Text("Mis ingresos"),
                     ),
                   ),
@@ -99,17 +87,17 @@ class _WalletScreenState extends State<WalletScreen>
                       padding: const EdgeInsets.only(top: 8, left: 40),
                       width: 150,
                       height: 40,
-                      decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 240, 125, 117),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(20)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey[850]!.withOpacity(0.29),
-                              offset: const Offset(-10, 10),
-                              blurRadius: 10,
-                            )
-                          ]),
+                      // decoration: BoxDecoration(
+                      //     color: const Color.fromARGB(255, 240, 125, 117),
+                      //     borderRadius:
+                      //         const BorderRadius.all(Radius.circular(20)),
+                      //     boxShadow: [
+                      //       BoxShadow(
+                      //         color: Colors.grey[850]!.withOpacity(0.29),
+                      //         offset: const Offset(-10, 10),
+                      //         blurRadius: 10,
+                      //       )
+                      //     ]),
                       child: const Text("Mis Gastos"),
                     ),
                   ),
@@ -123,14 +111,10 @@ class _WalletScreenState extends State<WalletScreen>
             children: [
               Container(
                   margin: const EdgeInsets.only(top: 5, bottom: 20),
-                  child: Column(
-                    children: const [TransactionPositive()],
-                  )),
+                  child: TransactionPositive()),
               Container(
                   margin: const EdgeInsets.only(top: 5, bottom: 20),
-                  child: Column(
-                    children: const [TransactionNegative()],
-                  )),
+                  child: TransactionNegative()),
             ],
           ))
         ],

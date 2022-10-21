@@ -10,7 +10,6 @@ class SingleTaskInprogress extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(2.0),
       margin: const EdgeInsets.only(top: 0, bottom: 0),
-      width: 200, height: 125,
       //decoration: _cardBorders(),
       child: Stack(
         alignment: Alignment.bottomLeft,

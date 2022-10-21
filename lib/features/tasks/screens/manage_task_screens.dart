@@ -7,8 +7,6 @@ import '../../../providers/task_form_provider.dart';
 import '../widgets/task.dart';
 
 import '../widgets/taskDone.dart';
-import 'inprogress_screen.dart';
-import 'task_done_screen.dart';
 
 class ManageTaskScreen extends StatefulWidget {
   const ManageTaskScreen({Key? key}) : super(key: key);
@@ -123,19 +121,18 @@ class _ManageTaskScreenState extends State<ManageTaskScreen>
             children: [
               Container(
                   margin: const EdgeInsets.only(top: 5, left: 20, bottom: 20),
-                  color: Colors.white,
-                  child: Tasks()),
+                  child: const SingleChildScrollView(child: Tasks())),
               // Container(
               //   child: Text('hola'),
               // ),
 
               Container(
-                margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
-                child: TasksInprogres(),
+                margin: const EdgeInsets.only(top: 5, left: 20, bottom: 20),
+                child: const SingleChildScrollView(child: TasksInprogres()),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
-                child: TasksDone(),
+                margin: const EdgeInsets.only(top: 5, left: 20, bottom: 20),
+                child: const SingleChildScrollView(child: TasksDone()),
               ),
             ],
           ))

@@ -3,10 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../models/tasks.dart';
 
-
-
-
-class ButtonsAceptReject extends StatelessWidget{
+class ButtonsAceptReject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,7 +25,6 @@ class ButtonsAceptReject extends StatelessWidget{
                 context,
                 'ChallengeAcepted',
               );
-             
             },
             child: const Text(
               "Aceptar",
@@ -54,7 +50,6 @@ class ButtonsAceptReject extends StatelessWidget{
                 context,
                 'ChallengeAcepted',
               );
-              
             },
             child: const Text(
               "Rechazar",

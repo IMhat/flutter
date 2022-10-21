@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class SingleTask extends StatelessWidget {
   final Task task;
+
   const SingleTask({Key? key, required this.task}) : super(key: key);
 
   @override
@@ -10,7 +11,6 @@ class SingleTask extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(2.0),
       margin: const EdgeInsets.only(top: 0, bottom: 0),
-      width: 200, height: 120,
       //decoration: _cardBorders(),
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -20,6 +20,7 @@ class SingleTask extends StatelessWidget {
             // subTitle: taskListProvider.tasks[i].description,
             title: task.title,
             type: task.status,
+
             //subTitle: widget.task.description,
           ),
         ],
@@ -52,8 +53,8 @@ class _TaskDetailsState extends State<_TaskDetails> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      width: 400,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      width: 320,
       height: 125,
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 237, 236, 237),

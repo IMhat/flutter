@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/tasks.dart';
+
 // String uri = 'https://amazon-clone-by-yoosuf.herokuapp.com/';
 String uri = 'https://server-flutterm.herokuapp.com';
 
