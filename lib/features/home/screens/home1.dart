@@ -59,7 +59,7 @@ class HomePage1 extends StatelessWidget {
                 ),
               ),
               Container(
-                  margin: const EdgeInsets.only(top: 20, left: 220),
+                  margin: const EdgeInsets.only(top: 30, left: 220),
                   child: const MyButtonNotification()),
               Container(
                 margin: const EdgeInsets.only(top: 40, left: 300),
@@ -99,7 +99,7 @@ class HomePage1 extends StatelessWidget {
                     child: Row(
                       children: [
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: const [
                             Text(
                               "Hoy",

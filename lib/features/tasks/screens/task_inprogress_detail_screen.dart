@@ -15,6 +15,7 @@ import 'package:provider/provider.dart';
 
 import '../../account/services/account_services.dart';
 import '../widgets/check_tasks.dart';
+import 'package:flutter_quill/flutter_quill.dart' hide Text;
 
 class TaskInprogressDetailsScreen extends StatefulWidget {
   static const String routeName = '/taskInprogress-details';
@@ -30,6 +31,8 @@ class TaskInprogressDetailsScreen extends StatefulWidget {
   State<TaskInprogressDetailsScreen> createState() =>
       _TaskInprogressDetailsScreenState();
 }
+
+QuillController _controller = QuillController.basic();
 
 class _TaskInprogressDetailsScreenState
     extends State<TaskInprogressDetailsScreen> {
@@ -202,7 +205,6 @@ class _TaskInprogressDetailsScreenState
             const SizedBox(height: 10),
             Container(
               padding: const EdgeInsets.all(15.0),
-
               // decoration: BoxDecoration(
               //     border:
               //         Border.all(color: const Color.fromARGB(255, 0, 21, 255)),
@@ -279,6 +281,38 @@ class _TaskInprogressDetailsScreenState
                   ),
                 ],
               ),
+            ),
+            const Divider(
+              indent: 2,
+              color: Colors.deepPurple,
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(30.0),
+                  child: QuillToolbar.basic(controller: _controller),
+                ),
+                Flex(direction: Axis.vertical, children: [
+                  Container(
+                    // decoration: BoxDecoration(
+                    //     color: const Color.fromARGB(255, 237, 236, 237),
+                    //     borderRadius:
+                    //         const BorderRadius.all(Radius.circular(8)),
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //         color: Colors.grey[850]!.withOpacity(0.29),
+                    //         offset: const Offset(-10, 10),
+                    //         blurRadius: 10,
+                    //       )
+                    //     ]),
+                    child: QuillEditor.basic(
+                      controller: _controller,
+                      readOnly: false,
+                      keyboardAppearance: Brightness.light,
+                    ),
+                  ),
+                ])
+              ],
             ),
             const Divider(
               indent: 2,

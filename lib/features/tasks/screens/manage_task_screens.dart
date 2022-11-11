@@ -142,9 +142,7 @@ class _ManageTaskScreenState extends State<ManageTaskScreen>
   }
 }
 
-Future<void> _refresh() {
-  return Future.delayed(const Duration(seconds: 0));
-}
+
 
 // Container(
 //   padding: const EdgeInsets.only(

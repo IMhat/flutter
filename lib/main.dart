@@ -9,6 +9,7 @@ import 'package:smiley_app/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+
 void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
