@@ -7,20 +7,11 @@ class SingleWallet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 300,
-      padding: const EdgeInsets.all(10),
-      child: Stack(
-        alignment: Alignment.bottomLeft,
-        children: [
-          _WalletDetails(
-            //title: taskListProvider.tasks[i].title,
-            // subTitle: taskListProvider.tasks[i].description,
-            name: wallet.username,
-            points: wallet.balance,
-          ),
-        ],
-      ),
+    return _WalletDetails(
+      //title: taskListProvider.tasks[i].title,
+      // subTitle: taskListProvider.tasks[i].description,
+      name: wallet.username,
+      points: wallet.balance,
     );
   }
 }
@@ -46,66 +37,66 @@ class _WalletDetailsState extends State<_WalletDetails> {
       ]);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 50),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        width: 350,
-        height: 100,
-        decoration: const BoxDecoration(
-          color: Color(0xffCFBDF8),
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ShaderMask(
-              shaderCallback: (Rect rect) {
-                return _gradient.createShader(rect);
-              },
-              child: SizedBox(
-                width: 130,
-                child: Text(
-                  widget.name.toString(),
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 10,
-                      color: Colors.white),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            ShaderMask(
-              shaderCallback: (Rect rect) {
-                return _gradient.createShader(rect);
-              },
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      width: 250,
+      height: 80,
+      decoration: const BoxDecoration(
+        color: Color(0xffCFBDF8),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ShaderMask(
+            shaderCallback: (Rect rect) {
+              return _gradient.createShader(rect);
+            },
+            child: SizedBox(
+              width: 250,
               child: Text(
-                widget.points.toString(),
+                widget.name.toString(),
                 style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 12,
                     color: Colors.white),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
               ),
             ),
-            ShaderMask(
-              shaderCallback: (Rect rect) {
-                return _gradient.createShader(rect);
-              },
-              child: const Text(
-                "Puntos",
-                style: TextStyle(
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          ShaderMask(
+            shaderCallback: (Rect rect) {
+              return _gradient.createShader(rect);
+            },
+            child: Wrap(children: [
+              Text(
+                widget.points.toString(),
+                style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.white),
               ),
-            ),
-          ],
-        ),
+              const SizedBox(width: 5),
+              ShaderMask(
+                shaderCallback: (Rect rect) {
+                  return _gradient.createShader(rect);
+                },
+                child: const Text(
+                  "Puntos",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white),
+                ),
+              ),
+            ]),
+          ),
+        ],
       ),
     );
   }

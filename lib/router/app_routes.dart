@@ -21,7 +21,7 @@ class AppRoutes {
         route: 'ManageTasks',
         icon: Icons.manage_search_outlined,
         name: 'Gestor de Tareas',
-        screen: ManageTaskScreen()),
+        screen: const ManageTaskScreen()),
     // MenuOption(
     //     route: 'AceptTasks',
     //     icon: Icons.manage_search_outlined,
@@ -31,7 +31,7 @@ class AppRoutes {
         route: 'ChallengeAcepted',
         icon: Icons.manage_search_outlined,
         name: 'Challenge acepted',
-        screen: ChallengeAcepted()),
+        screen: const ChallengeAcepted()),
     // MenuOption(
     //     route: 'ProgresTaskView',
     //     icon: Icons.manage_search_outlined,
@@ -46,7 +46,7 @@ class AppRoutes {
         route: 'Account',
         icon: Icons.manage_search_outlined,
         name: 'Progreso Tarea',
-        screen: AccountScreen()),
+        screen: const AccountScreen()),
     // MenuOption(
     //     route: 'Notification',
     //     icon: Icons.manage_search_outlined,
@@ -73,16 +73,16 @@ class AppRoutes {
     //     icon: Icons.supervised_user_circle_sharp,
     //     name: 'Usuarios UTEAM',
     //     screen: UserScreen()),
-    MenuOption(
-        route: 'homePage',
-        icon: Icons.home,
-        name: 'PantallaHome',
-        screen: const HomePage()),
+    // MenuOption(
+    //     route: 'homePage',
+    //     icon: Icons.home,
+    //     name: 'PantallaHome',
+    //     screen: const HomePage()),
     MenuOption(
         route: 'tienda',
         icon: Icons.home,
         name: 'PantallaHome',
-        screen: HomeScreen()),
+        screen: const HomeScreen()),
     MenuOption(
         route: 'AuthPage',
         icon: Icons.home,

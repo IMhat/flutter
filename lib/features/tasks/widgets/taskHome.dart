@@ -40,7 +40,18 @@ class _TasksCounterState extends State<TasksCounter> {
               children: [
                 // DISPLAY ORDERS
                 Container(
-                  child: Text(tasks!.length.toString()),
+                  child: Wrap(children: [
+                    Text(
+                      tasks!.length.toString(),
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w500),
+                    ),
+                    const Text(
+                      " desafíos",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                    )
+                  ]),
                 )
               ],
             ),

@@ -68,6 +68,8 @@ class AccountServices {
     required String category,
     required String assignmentUser,
     required String createdBy,
+    required String startDate;
+    required String endDate;
     required String description,
     required String id,
     required int points,
@@ -81,6 +83,8 @@ class AccountServices {
         description,
         points,
         category,
+        startDate,
+        endDate,
         assignmentUser,
         status,
         createdBy,

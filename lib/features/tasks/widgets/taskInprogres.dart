@@ -40,34 +40,8 @@ class _TasksInprogresState extends State<TasksInprogres> {
         ? const Loader()
         : Column(
             children: [
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Container(
-              //       padding: const EdgeInsets.only(left: 15),
-              //       child: const Text(
-              //         'Your Wallet',
-              //         style: TextStyle(
-              //           fontSize: 18,
-              //           fontWeight: FontWeight.w600,
-              //         ),
-              //       ),
-              //     ),
-              //     // Container(
-              //     //   padding: const EdgeInsets.only(right: 15),
-              //     //   child: Text(
-              //     //     'See all',
-              //     //     style: TextStyle(
-              //     //       color: GlobalVariables.selectedNavBarColor,
-              //     //     ),
-              //     //   ),
-              //     // ),
-              //   ],
-              // ),
-
-              // DISPLAY ORDERS
               Container(
-                margin: EdgeInsets.only(right: 20),
+                margin: const EdgeInsets.only(right: 20),
                 width: 330,
                 padding: const EdgeInsets.only(left: 10, top: 20, right: 0),
                 child: ListView.builder(

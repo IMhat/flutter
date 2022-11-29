@@ -8,10 +8,19 @@ class SingleTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    DateTime startDate = DateTime.parse(task.startDate);
+    DateTime endDate = DateTime.parse(task.endDate);
+
+    String ymdStartDate = DateFormat('dd/MM/yyyy').format(startDate);
+    String ymdEndDate = DateFormat('dd/MM/yyyy').format(endDate);
+
+    String hmStartDate = DateFormat('HH:mm aa').format(startDate);
+    String hmEndDate = DateFormat('HH:mm aa').format(endDate);
+    
     return Container(
       padding: const EdgeInsets.all(2.0),
       margin: const EdgeInsets.only(top: 0, bottom: 0),
-      width: 200, height: 120,
       //decoration: _cardBorders(),
       child: Stack(
         alignment: Alignment.bottomLeft,
@@ -21,6 +30,15 @@ class SingleTask extends StatelessWidget {
             // subTitle: taskListProvider.tasks[i].description,
             title: task.title,
             type: task.status,
+    DateTime startDate = DateTime.parse(task.startDate);
+    DateTime endDate = DateTime.parse(task.endDate);
+
+    String ymdStartDate = DateFormat('dd/MM/yyyy').format(startDate);
+    String ymdEndDate = DateFormat('dd/MM/yyyy').format(endDate);
+
+    String hmStartDate = DateFormat('HH:mm aa').format(startDate);
+    String hmEndDate = DateFormat('HH:mm aa').format(endDate);
+            
 
             //subTitle: widget.task.description,
           ),
@@ -54,8 +72,8 @@ class _TaskDetailsState extends State<_TaskDetails> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      width: 400,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      width: 320,
       height: 125,
       decoration: BoxDecoration(
           color: const Color.fromARGB(255, 237, 236, 237),
@@ -99,35 +117,87 @@ class _TaskDetailsState extends State<_TaskDetails> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  const Icon(Icons.today_outlined),
-                  const Text("2 hours ago"),
-                  Container(
-                    margin: const EdgeInsets.only(left: 50),
-                    padding: const EdgeInsets.only(
-                      top: 10,
+              // -------------------- viejo 2hours ago------------------------
+              // const SizedBox(height: 10),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //   children: [
+              //     const Icon(Icons.today_outlined),
+              //     const Text("2 hours ago"),
+              //     Container(
+              //       margin: const EdgeInsets.only(left: 50),
+              //       padding: const EdgeInsets.only(
+              //         top: 10,
+              //       ),
+              //       width: 100,
+              //       height: 45,
+              //       decoration: BoxDecoration(
+              //           color: const Color.fromARGB(166, 239, 41, 27),
+              //           border: Border.all(
+              //               color: const Color.fromARGB(255, 255, 251, 251)),
+              //           borderRadius: BorderRadius.circular(50)),
+              //       child: Text(
+              //         widget.type.toString(),
+              //         style: const TextStyle(
+              //             fontSize: 15,
+              //             fontWeight: FontWeight.bold,
+              //             color: Color.fromARGB(255, 0, 0, 0)),
+              //         textAlign: TextAlign.center,
+              //       ),
+              //     ),
+              //   ],
+              // )
+
+              ///---------------------------------------------------------
+              
+              //nuevo--------------------------
+                              const SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.play_fou,
+                      color: Colors.grey[200],
+                      size: 16,
                     ),
-                    width: 100,
-                    height: 45,
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(166, 239, 41, 27),
-                        border: Border.all(
-                            color: const Color.fromARGB(255, 255, 251, 251)),
-                        borderRadius: BorderRadius.circular(50)),
-                    child: Text(
-                      widget.type.toString(),
-                      style: const TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 0, 0, 0)),
-                      textAlign: TextAlign.center,
+                    const SizedBox(width: 4),
+                    Text(
+                      '$ymdStartDate - $hmStartDate',
+                      style: Fonts.lato(
+                        textStyle:
+                            TextStyle(fontSize: 13, color: Colors.grey[100]),
+                      ),
                     ),
-                  ),
-                ],
-              )
+                  ],
+                ),
+                  const SizedBox(
+                  height: 8,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.stop_fou,
+                      color: Colors.grey[200],
+                      size: 16,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      "$ymdEndDate - $hmEndDate",
+                      style: Fonts.lato(
+                        textStyle:
+                            TextStyle(fontSize: 13, color: Colors.grey[100]),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+          
+
+
+
               // Text(
               //   widget.subTitle.toString(),
               //   style: const TextStyle(

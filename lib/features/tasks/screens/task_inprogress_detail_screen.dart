@@ -4,6 +4,7 @@ import 'package:smiley_app/common/widgets/stars.dart';
 import 'package:smiley_app/constants/global_variables.dart';
 
 import 'package:smiley_app/features/search/screens/search_screen.dart';
+import 'package:smiley_app/models/check_task_progress.dart';
 import 'package:smiley_app/models/task_inprogress.dart';
 
 import 'package:smiley_app/providers/user_provider.dart';
@@ -13,6 +14,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../account/services/account_services.dart';
+import '../widgets/check_tasks.dart';
+import 'package:flutter_quill/flutter_quill.dart' hide Text;
 
 class TaskInprogressDetailsScreen extends StatefulWidget {
   static const String routeName = '/taskInprogress-details';
@@ -28,6 +31,8 @@ class TaskInprogressDetailsScreen extends StatefulWidget {
   State<TaskInprogressDetailsScreen> createState() =>
       _TaskInprogressDetailsScreenState();
 }
+
+QuillController _controller = QuillController.basic();
 
 class _TaskInprogressDetailsScreenState
     extends State<TaskInprogressDetailsScreen> {
@@ -84,42 +89,97 @@ class _TaskInprogressDetailsScreenState
   //     product: widget.product,
   //   );
   // }
+  final buttonStyleDowload = ElevatedButton.styleFrom(
+      elevation: 0,
+      primary: const Color.fromARGB(255, 205, 203, 203),
+      onPrimary: const Color.fromARGB(255, 0, 34, 255));
+  final textStyleTitle = const TextStyle(
+      fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 218, 114, 110),
+      backgroundColor: const Color.fromARGB(255, 205, 203, 203),
+      appBar: AppBar(
+        title: const Text("Progreso de la tarea"),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const SizedBox(height: 10),
             Container(
-                margin: EdgeInsets.only(top: 50, right: 250),
-                child: Wrap(
-                  children: const [
-                    Text("Back to home"),
-                    //MyButtonBackHome(),
+              padding: const EdgeInsets.all(15.0),
+              child: Flex(direction: Axis.vertical, children: [
+                Text(
+                  widget.task.title,
+                  style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0)),
+                  textAlign: TextAlign.justify,
+                ),
+              ]),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Container(
+                padding: const EdgeInsets.only(right: 20),
+                width: 400,
+                height: 70,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("Para", style: textStyleTitle),
+                    Container(
+                      width: 250,
+                      height: 45,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                          borderRadius: BorderRadius.circular(50)),
+                      child: Stack(
+                        children: [
+                          LayoutBuilder(
+                              builder: (context, constraints) => Container(
+                                    width: constraints.maxWidth * 10,
+                                    decoration: BoxDecoration(
+                                        color: const Color.fromARGB(
+                                            255, 199, 197, 198),
+                                        borderRadius:
+                                            BorderRadius.circular(50)),
+                                  )),
+                          Positioned.fill(
+                              child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Row(
+                              children: [
+                                const CircleAvatar(
+                                  radius: 25.0,
+                                  backgroundImage:
+                                      AssetImage('assets/user.png'),
+                                ),
+                                Flex(direction: Axis.horizontal, children: [
+                                  Text(
+                                    widget.task.assignmentUser,
+                                    style: const TextStyle(fontSize: 10),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ]),
+                              ],
+                            ),
+                          ))
+                        ],
+                      ),
+                    ),
                   ],
                 )),
             Container(
-              padding: const EdgeInsets.only(left: 10),
-              margin: const EdgeInsets.only(top: 60, right: 20),
-              width: 300,
-              height: 70,
-              child: const Text(
-                "Progreso de tarea",
-                style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 255, 255, 255)),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(top: 5),
-              margin: const EdgeInsets.only(top: 50, left: 120),
-              width: 200,
+              margin: const EdgeInsets.only(left: 200),
+              padding: const EdgeInsets.all(10.0),
+              width: 120,
               height: 45,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 235, 188, 100),
+                  color: const Color.fromARGB(255, 250, 158, 105),
                   border: Border.all(
                       color: const Color.fromARGB(255, 255, 251, 251)),
                   borderRadius: BorderRadius.circular(50)),
@@ -133,211 +193,153 @@ class _TaskInprogressDetailsScreenState
               ),
             ),
             Container(
-              decoration: _cardBorders(),
-              margin: const EdgeInsetsDirectional.only(top: 10),
-              width: 500,
-              height: 700,
-              child: Container(
-                margin: const EdgeInsets.only(top: 30, bottom: 20),
-                width: 100,
-                height: 80,
-                decoration: _cardBorders(),
-                child: Column(
-                  children: [
-                    Wrap(
-                      alignment: WrapAlignment.spaceAround,
-                      spacing: 80.0,
-                      children: [
-                        SizedBox(
-                          width: 330,
-                          height: 60,
-                          child: Text(
-                            widget.task.title,
-                            style: const TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.start,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        // Text(
-                        //   widget.points.toString(),
-                        //   style: const TextStyle(
-                        //       fontSize: 20,
-                        //       fontWeight: FontWeight.bold,
-                        //       color: Colors.blue),
-                        //   textAlign: TextAlign.start,
-                        // ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Container(
-                      margin: const EdgeInsets.only(top: 10, right: 150),
-                      child: const Text(
-                        "Objetivo",
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.only(top: 0, left: 5, right: 5),
-                      margin: const EdgeInsets.only(
-                        top: 20,
-                      ),
-                      width: 340,
-                      height: 200,
-                      child: Text(
-                        widget.task.description,
-                        style: const TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    //Button change state of type
-
-                    Column(
-                      children: [
-                        Container(
-                          width: 340,
-                          height: 200,
-                          child: Wrap(
-                            alignment: WrapAlignment.spaceAround,
-                            children: [
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Text(
-                                    "01",
-                                    style: TextStyle(
-                                        fontSize: 25, color: Colors.grey),
-                                  ),
-                                  Text("02",
-                                      style: TextStyle(
-                                          fontSize: 25, color: Colors.grey)),
-                                  Text("03",
-                                      style: TextStyle(
-                                          fontSize: 25, color: Colors.grey)),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: const [
-                                  SizedBox(
-                                    width: 250,
-                                    height: 40,
-                                    child: Text(
-                                      "Maquetado",
-                                      style: TextStyle(
-                                          fontSize: 25, color: Colors.black),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 250,
-                                    height: 40,
-                                    child: Text(
-                                      "Analisís de requerimientos",
-                                      style: TextStyle(
-                                          fontSize: 20, color: Colors.black),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                  Text("Discovery",
-                                      style: TextStyle(
-                                          fontSize: 25, color: Colors.black)),
-                                ],
-                              ),
-                              Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(
-                                    Icons.check_circle,
-                                    color: Colors.blue,
-                                    size: 40,
-                                  ),
-                                  Icon(
-                                    Icons.play_circle_fill_outlined,
-                                    color: Colors.blue,
-                                    size: 40,
-                                  ),
-                                  Icon(
-                                    Icons.lock_rounded,
-                                    color: Colors.blue,
-                                    size: 40,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 16),
-                      width: 350,
-                      height: 100,
-                      decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              topRight: Radius.circular(30),
-                              bottomLeft: Radius.zero,
-                              bottomRight: Radius.zero),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey[850]!.withOpacity(0.40),
-                              blurRadius: 10,
-                            )
-                          ]),
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 15),
-                        child: Wrap(
-                          alignment: WrapAlignment.spaceAround,
-                          children: [
-                            Container(
-                              width: 100,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 247, 220, 220),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: const Icon(
-                                Icons.star_border,
-                                size: 40,
-                                color: Color.fromARGB(255, 255, 121, 64),
-                              ),
-                            ),
-                            Container(
-                              width: 200,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    begin: AlignmentDirectional.topEnd,
-                                    colors: [
-                                      Color.fromARGB(255, 242, 133, 157),
-                                      Color.fromARGB(255, 167, 79, 211),
-                                    ]),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: OutlinedButton.icon(
-                                icon: const Icon(Icons.check,
-                                    color: Colors.black),
-                                label: const Text("Done",
-                                    style: TextStyle(color: Colors.white)),
-                                onPressed: () {
-                                  acept();
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
+                margin: const EdgeInsets.only(right: 200),
+                child: Text(
+                  "Descripción",
+                  style: textStyleTitle,
+                )),
+            const Divider(
+              indent: 5,
+              color: Colors.deepPurple,
+            ),
+            const SizedBox(height: 10),
+            Container(
+              padding: const EdgeInsets.all(15.0),
+              // decoration: BoxDecoration(
+              //     border:
+              //         Border.all(color: const Color.fromARGB(255, 0, 21, 255)),
+              //     borderRadius: BorderRadius.circular(10)),
+              child: Flex(direction: Axis.vertical, children: [
+                Text(
+                  widget.task.description,
+                  style: const TextStyle(
+                      fontSize: 15, color: Color.fromARGB(255, 9, 0, 0)),
+                  textAlign: TextAlign.justify,
                 ),
+              ]),
+            ),
+            const SizedBox(height: 10),
+            Container(
+                padding: const EdgeInsets.only(left: 0),
+                width: 500,
+                height: 70,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Icon(Icons.file_copy),
+                    //Image(image: AssetImage("assets/tareaasignada.jpg")),
+                    const Text("34 MB"),
+                    ElevatedButton(
+                      style: buttonStyleDowload,
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          '',
+                        );
+                      },
+                      child: const Text("Download"),
+                    ),
+                  ],
+                )),
+            Container(
+                padding: const EdgeInsets.only(left: 0),
+                width: 500,
+                height: 70,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: const [
+                    Text("Aa",
+                        style: TextStyle(fontSize: 20, color: Colors.grey)),
+                    Icon(Icons.emoji_emotions_outlined),
+                    Icon(Icons.attach_file),
+                    Icon(Icons.today_outlined),
+                    Text(
+                      "vence 10/10/22",
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    Icon(Icons.person_add)
+                  ],
+                )),
+            Container(
+              margin: const EdgeInsets.only(left: 100),
+              child: Row(
+                children: [
+                  Text(
+                    ' ${widget.task.points}',
+                    style: const TextStyle(
+                      fontSize: 30,
+                      color: Color.fromARGB(255, 27, 112, 248),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const Text(
+                    " Puntos",
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 27, 112, 248)),
+                  ),
+                ],
+              ),
+            ),
+            const Divider(
+              indent: 2,
+              color: Colors.deepPurple,
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(30.0),
+                  child: QuillToolbar.basic(controller: _controller),
+                ),
+                Flex(direction: Axis.vertical, children: [
+                  Container(
+                    // decoration: BoxDecoration(
+                    //     color: const Color.fromARGB(255, 237, 236, 237),
+                    //     borderRadius:
+                    //         const BorderRadius.all(Radius.circular(8)),
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //         color: Colors.grey[850]!.withOpacity(0.29),
+                    //         offset: const Offset(-10, 10),
+                    //         blurRadius: 10,
+                    //       )
+                    //     ]),
+                    child: QuillEditor.basic(
+                      controller: _controller,
+                      readOnly: false,
+                      keyboardAppearance: Brightness.light,
+                    ),
+                  ),
+                ])
+              ],
+            ),
+            const Divider(
+              indent: 2,
+              color: Colors.deepPurple,
+            ),
+            const SizedBox(height: 10),
+            CheckTask(),
+            Container(
+              padding: const EdgeInsets.all(1.0),
+              width: 150,
+              height: 50,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                    begin: AlignmentDirectional.topEnd,
+                    colors: [
+                      Color.fromARGB(255, 242, 133, 157),
+                      Color.fromARGB(255, 167, 79, 211),
+                    ]),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: OutlinedButton.icon(
+                icon: const Icon(Icons.check, color: Colors.black),
+                label:
+                    const Text("Done", style: TextStyle(color: Colors.white)),
+                onPressed: () {
+                  acept();
+                },
               ),
             ),
           ],

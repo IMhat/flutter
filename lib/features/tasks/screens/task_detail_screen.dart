@@ -93,29 +93,32 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
 
   final buttonStyleDowload = ElevatedButton.styleFrom(
       elevation: 0,
-      primary: const Color.fromARGB(255, 255, 255, 255),
+      primary: const Color.fromARGB(255, 205, 203, 203),
       onPrimary: const Color.fromARGB(255, 0, 34, 255));
+  final textStyleTitle = const TextStyle(
+      fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 205, 203, 203),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(height: 10),
             Container(
-              padding: const EdgeInsets.only(top: 20, right: 130),
-              width: 350,
-              height: 60,
-              child: Text(
-                widget.task.title,
-                style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 0, 0)),
-                textAlign: TextAlign.center,
-              ),
+              padding: const EdgeInsets.all(15.0),
+              child: Flex(direction: Axis.vertical, children: [
+                Text(
+                  widget.task.title,
+                  style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 0, 0, 0)),
+                  textAlign: TextAlign.center,
+                ),
+              ]),
             ),
             const SizedBox(
               height: 10,
@@ -127,7 +130,10 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    const Text("Para"),
+                    Text(
+                      "Para",
+                      style: textStyleTitle,
+                    ),
                     Container(
                       width: 250,
                       height: 45,
@@ -155,10 +161,13 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
                                   backgroundImage:
                                       AssetImage('assets/user.png'),
                                 ),
-                                Text(
-                                  widget.task.assignmentUser,
-                                  style: const TextStyle(fontSize: 10),
-                                ),
+                                Flex(direction: Axis.horizontal, children: [
+                                  Text(
+                                    widget.task.assignmentUser,
+                                    style: const TextStyle(fontSize: 10),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ]),
                               ],
                             ),
                           ))
@@ -169,11 +178,11 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
                 )),
             Container(
               margin: const EdgeInsets.only(left: 200),
-              padding: const EdgeInsets.only(top: 5),
+              padding: const EdgeInsets.all(10.0),
               width: 120,
               height: 45,
               decoration: BoxDecoration(
-                  color: Colors.green,
+                  color: const Color.fromARGB(255, 240, 98, 98),
                   border: Border.all(
                       color: const Color.fromARGB(255, 255, 251, 251)),
                   borderRadius: BorderRadius.circular(50)),
@@ -186,20 +195,32 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
                 textAlign: TextAlign.center,
               ),
             ),
+            Container(
+                margin: const EdgeInsets.only(right: 200),
+                child: Text(
+                  "Descripción",
+                  style: textStyleTitle,
+                )),
+            const Divider(
+              indent: 5,
+              color: Colors.deepPurple,
+            ),
             const SizedBox(height: 10),
             Container(
-              padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
-              width: 340,
-              height: 200,
-              decoration: BoxDecoration(
-                  border:
-                      Border.all(color: const Color.fromARGB(255, 0, 21, 255)),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Text(
-                widget.task.description,
-                style: const TextStyle(
-                    fontSize: 15, color: Color.fromARGB(255, 9, 0, 0)),
-              ),
+              padding: const EdgeInsets.all(15.0),
+
+              // decoration: BoxDecoration(
+              //     border:
+              //         Border.all(color: const Color.fromARGB(255, 0, 21, 255)),
+              //     borderRadius: BorderRadius.circular(10)),
+              child: Flex(direction: Axis.vertical, children: [
+                Text(
+                  widget.task.description,
+                  style: const TextStyle(
+                      fontSize: 15, color: Color.fromARGB(255, 9, 0, 0)),
+                  textAlign: TextAlign.justify,
+                ),
+              ]),
             ),
             const SizedBox(height: 10),
             Container(
@@ -207,8 +228,10 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
                 width: 500,
                 height: 70,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    const Icon(Icons.file_copy),
+                    //Image(image: AssetImage("assets/tareaasignada.jpg")),
                     const Text("34 MB"),
                     ElevatedButton(
                       style: buttonStyleDowload,
@@ -218,7 +241,7 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
                           '',
                         );
                       },
-                      child: const Text("Dowload"),
+                      child: const Text("Download"),
                     ),
                   ],
                 )),
@@ -248,8 +271,8 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
                   Text(
                     ' ${widget.task.points}',
                     style: const TextStyle(
-                      fontSize: 22,
-                      color: Colors.red,
+                      fontSize: 30,
+                      color: Color.fromARGB(255, 27, 112, 248),
                       fontWeight: FontWeight.w500,
                     ),
                   ),

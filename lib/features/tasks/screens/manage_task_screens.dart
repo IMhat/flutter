@@ -121,19 +121,18 @@ class _ManageTaskScreenState extends State<ManageTaskScreen>
             children: [
               Container(
                   margin: const EdgeInsets.only(top: 5, left: 20, bottom: 20),
-                  color: Colors.white,
-                  child: Tasks()),
+                  child: const SingleChildScrollView(child: Tasks())),
               // Container(
               //   child: Text('hola'),
               // ),
 
               Container(
-                margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
-                child: TasksInprogres(),
+                margin: const EdgeInsets.only(top: 5, left: 20, bottom: 20),
+                child: const SingleChildScrollView(child: TasksInprogres()),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 30, left: 20, bottom: 20),
-                child: TasksDone(),
+                margin: const EdgeInsets.only(top: 5, left: 20, bottom: 20),
+                child: const SingleChildScrollView(child: TasksDone()),
               ),
             ],
           ))
@@ -143,9 +142,7 @@ class _ManageTaskScreenState extends State<ManageTaskScreen>
   }
 }
 
-Future<void> _refresh() {
-  return Future.delayed(const Duration(seconds: 0));
-}
+
 
 // Container(
 //   padding: const EdgeInsets.only(

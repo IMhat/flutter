@@ -34,8 +34,8 @@ class MyAccountScreen extends StatelessWidget {
             SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Container(
-                margin: const EdgeInsets.only(top: 0, left: 20, bottom: 20),
-                width: 320,
+                margin: const EdgeInsets.all(8.0),
+                width: 400,
                 height: 500,
                 child: ListView(
                   children: <Widget>[
